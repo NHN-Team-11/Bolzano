@@ -1,0 +1,62 @@
+Javac -> 컴퓨터에서 직접 실행할 수 있는 일련의 명령으로 변환하는 프로그램 컴파일러이다.
+Java 바이트 코드라는 코드를 생성한다.
+Editor(Inteli J) -> java source code 작성 -> Compiler(Javac) -> 
+Libraries - Class file(컴파일러로 만들어진 클래스 파일) ->
+java virtual machine(바이트 코드 해석기) -> 프로그램이 실행됨.
+
+코드의 가독성(readability)을 위해 -> 들여쓰기(indentation)은 중요하다.
+System.out -> PrintStream의 instance of the predefined
+
+Invocation object -> 호출 객체
+Object.MethodName(parameter); == System.out.println(“Ciao”);
+System.out -> 호출 객체 이다. 
+Println(…) -> 호출된 메서드.
+Ciao-> 전달된 parameter(매개변수)이다.
+
+Entity -> 2차원 Table 자체를 의미한다.
+객체는 프로그램에 의해 조작될 수 있는 Entity이다.
+-> 무분별한 setter사용 지양(언제 어디서 변경되는지 파악하기 어려움)
+
+객체 - class of instance(속성) 그리고 클래스에 속한다.
+
+Overloading -> method의 이름은 같지만 signature가 다른 경우를 뜻한다.
+Ex) (new 내가 만든)substring method in the class String
+
+Parameter -> method가 수행해야 하는 작업을 실현하는데 필요한 값
+Ex) println(“Ciao”)는 System.out 이라는 invocation object에서 사용할 수 있는 method 이다. 여기서 println을 할 때 ciao라는 parameter 값이 필요하다.
+
+또 다른 경우인 xxx.concat(“YYY”);
+Xxx : invocation object
+YYY: parameter
+이런 경우 처럼 다른 메서드를 호출하여 얻어야 할 수도 있다.
+
+Static method
+ClassName.method(parameter);
+ClassName : method 가 속한 class
+Method : 호출된 메서드
+- Invocation object를 지정할 필요 없이 매개변수만 지정
+
+Variables
+만약에 str.toUpperCase()가 두번 사용 되는 경우를 방지하기 위해 이 표현식을 variable에 저장하고 재사용 할 수 있다.
+Ex) String line = str.toUpperCase();
+
+각 변수에는 연관된 메모리 위치가 있다.
+메모리 위치의 크기는 변수 유형에 따라 다르다. Ex) Integer, long, short …
+자바에서는 메모리 위치의 주소를 알 수 있는 방법이 없다.
+
+-> 프로그램 실행 중에 변수는 이름 유형 주소는 변경 할 수 없지만, 값은 변경할 수 있다.
+
+변수 초기화 -> 변수에 할당할 초기 값을 지정하는 것을 의미
+
+초기화 되지 않은 변수에는 정의된 값이 없으므로 해당 값이 할당 될 때 까지 사용 X
+초기화 되지 않은 변수에는 값이 없으며 심지어 null도 없습니다.
+
+Invocation of Construction
+- 생성자의 이름은 클래스 이름과 같다.
+- 특정 클래스에는 parameter의 수, 유형이 다른 여러 생성장가 있을 수 있다.
+- 생성자를 호출하면 생성자가 속한 클래스의 새 개체가 생성되고 생성된 개체에 대한 참조가 반환된다.
+
+StringBuffer()
+- 문자가 없고 character타입으로 16인 문자열 버퍼 생성
+- String은 불변 객체이다. 그래서 자신의 상태를 바꿀 수 없고 바꾸고 싶으면 코드 내부애서 new StringBuffer를 반복하게 되므로 메모리에 효과적이지 않아서 사용한다.
+- 가변 객체 : 가변 객체는 자신의 상태를 수정할 수 있어야 한다.
