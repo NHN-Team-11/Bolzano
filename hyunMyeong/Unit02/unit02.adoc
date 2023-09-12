@@ -1,9 +1,16 @@
-It has *strong* significance to me.
+== 9월12일 교육내용.
+* 1. objects : interest 영역과 관련된 정보에 대한 표현.
+* 2. operations: 원하는 기능을 구현할수 있도록, 적용? 조작 방법을 나타내는 것.
 
-I _cannot_ stress this enough.
+클래스와 클래스 사이의 이해관계를 명확히 하기위해, 클래스 다이어그램을 사용한다.
 
-Type `OK` to accept.
+자바 바이트코드: JVM이 내가 쓴 소스코드를 컴퓨터가 이해할수 있도록하게 변환하는 코드를 바이트 코드
+명령어가 1바이트라 자바 바이트코드라고 불림. 확장자 .class 이렇게 되어있음 
+==
+에러의 종류:
+- Syntax error: ;빼놓는거 등... 컴파일러가 에러를 감지.
+- Semantic(의미) error : 프로그램문에 알수없는 의미가 부여되면 발생하는 오류
+- Logical error : 이는 프로그램이 예상되는 기능과 다른 기능을 실현돼 발생하는 오류
 
-That *_really_* has to go.
-
-Can't pick one? Let's use them `*_all_*`.
+class = objects
+method = operation
