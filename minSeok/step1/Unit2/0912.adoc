@@ -1,0 +1,91 @@
+# Step1
+
+## Unit1
+
+Program(Objects(데이터 표현)+ Operations(기능을 실현하는 방법에 대한 설명))
+
+      실제로 수행하는 작업의 특징
+
+Obejects 
+
+- 동일한 유형의 objects를 classe로 그룹
+- 클래스 사이의 관계를 설정 → 서로 다른 클래스의 개체가 어떻게 연결되는지 확인
+- 각 클래스의 속하는 객체의 속성을 설정
+- 선택한 프로그래밍 언어는 클래스, 클래스 간의 관계 및 클래스의 속성을 인식
+
+Class diagram
+
+클래스 간의 관계를 명시적으로 만들때 사용하는 것
+
+- 클래스(직사각형), 클래스간 관계(화살표 → 일반적인 사용 관계와 같이 단순화된 형태), 클래스 속성 표시X
+
+소프트웨어 설계에 일반적으로 사용됨(UML)
+
+Algorithms
+
+문제의 해결책을 얻는 절차. 즉, 순차적으로 실행될 때 입력으로 제공된 정보에서 시작하여 문제의 해결책을 계산할 수 있도록 하는 일련의 명령.
+
+특징
+
+- non ambiguity (모호하지 않음)
+- executability (실행 가능성)
+- finiteness (유한성)
+
+Programming paradigms
+
+1. imperative : 계산 상태를 변경하는 actions/commands/instructions에 중점을 둠. Objects
+2. functional : 결과를 계산하는 함수에 중점을 둠. Objects
+3. Object oriented(객체지향) : 전체적인 관심 영역을 나타냄. Operations
+
+## Unit2
+
+- Comment
+
+프로그램 텍스트에 주석을 달 수 있음 (2가지 유형)
+
+// 줄 끝까지만 이어지는 주석의 시작을 나타냄 ,  /* … */ 여러줄에 걸쳐 있을 수 있는 주석을 구분
+
+주석은 프로그램 실행에 아무런 영향을 미치지 않고 프로그램 코드의 가독성을 향상시키는데 이용됨.
+
+- Method call
+
+objects.methodName(parameters)
+
+ex) System.out.println(”ms”); → System.out(object), println(method), “ms”(parameters)
+
+- Java의 Objects and Classes
+
+objects : 프로그램에 의해 조작될 수 있는 Entities, 각 객체는 클래스에 속해 있고 이것을 클래스의 인스턴스
+
+class : 동일한 속성(인스터스)를 가진 객체 집합으로 구성됨.
+
+*객체가 속한 클래스에 따라 객체에 사용할 수 있는 메서드가 결정됨.
+
+- String class(문자열)
+
+void는 메소드가 어던 결과도 반환하지 않는다는 사실을 나타냄. 즉 메소드는 함수가 아닌 작업을 구현함
+
+Overloaded : 동일한 클래스의 두 메서드는 signatures가 다른 경우 동일한 이름을 가질 수 있다. 이름이 같지만 시그니처가 다른 메서드를 overloaded 되었다고 한다.
+
+- Parameters of a method
+- Variables
+
+Variables는 objects에 대한 참조를 저장하는 데 사용할 수 있는 메모리의 위치를 나타냄.
+
+1. main properties
+
+(1) Name : 변수를 식별하기 위해 필요. ( 변경x ) 
+
+(2) Type :  변수가 저장할 수 있는 데이터 유형 지정 ( int, String, double ) ( 변경 x )
+
+(3) 저장된 데이터가 포함된 메모리 위치의 주소 :  ( 변경 x )
+
+- 각 변수에는 연관된 메모리 위치가 있고 메모리 위치의 크기는 변수 유형에 따라 다름. 이를 메모리 위치 주소를 알 수 있는 방법은 없음
+
+(4) Value : 프로그램 실행 중 특정 시점에 변수가 나타내는 데이터 ( 변경 o )
+
+## Unit3
+
+Modularization
+
+- Module ( 프로그램을 구성하는 요소, 관련된 데이터와 함수를 하나로 묶은 단위 )
