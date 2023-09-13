@@ -1,0 +1,51 @@
+= Introduction to Programming - Lectures Notes A.A. 2004/2005
+
+== Git
+* Organization: https://github.com/NHN-Team-11
+* Repository: https://github.com/NHN-Team-11/Bolzano
+
+== 진도
+* 내일 결정
+
+== 학습 방법
+* 진도 목표까지 학습 및 문제 해결 후 README.adoc 작성
+* 코드리뷰: 매일 13시 ~ 15시
+
+[cols=2*, options=header]
+|===
+|Chapter
+|Name
+
+| 1
+| link:./Chapter1[Introduction to programming]
+
+| 2
+| link:./Chapter2[Use of objects and variables]
+
+| 3
+| link:./Chapter1[Definition of methods and classes]
+
+| 4
+| Primitive data types
+
+| 5
+| Conditional statements
+
+| 6
+| Loop statements
+
+| 7
+| Arrays and matrices
+
+| 8
+| Files and input/output streams
+
+| 9
+| Program errors and exception handling
+
+| 10
+| Recursion
+
+| 11
+| Dynamic arrays and linked lists
+|===
