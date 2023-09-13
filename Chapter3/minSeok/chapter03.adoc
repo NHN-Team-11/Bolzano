@@ -3,16 +3,360 @@
 Modularization
 
 - Module ( 프로그램을 구성하는 요소, 관련된 데이터와 함수를 하나로 묶은 단위 )
-  모듈의 특징
-    (1) services exported 
-    (2) an inteface
-    (3) imported services
-    (4) an internal structure
-- 모듈화를 사용하면 프로그램을 실현할 수 있는 것.
-    (1) 요쳥된 문제를 해결하는 데 필요한 모듈을 정의 가능
-    (2) 모듈이 서로 어떻게 관련 되어 있는지 정의
-    (3) 각 모듈을 다른 모듈과 독립적으로 개발
-- 좋은점    
-    (1) 가독성이 높아짐
-    (2) 필요한 경우 프로그램의 기능을 확장할 수 있는 가능성이 있어짐 (확장성)
-    (3) 재사용성
+    
+    ```
+    모듈의 특징
+        (1) services exported 
+        (2) an inteface
+        (3) imported services
+        (4) an internal structure
+    - 모듈화를 사용하면 프로그램을 실현할 수 있는 것.
+        (1) 요쳥된 문제를 해결하는 데 필요한 모듈을 정의 가능
+        (2) 모듈이 서로 어떻게 관련 되어 있는지 정의
+        (3) 각 모듈을 다른 모듈과 독립적으로 개발
+    - 좋은점    
+        (1) 가독성이 높아짐
+        (2) 필요한 경우 프로그램의 기능을 확장할 수 있는 가능성이 있어짐 (확장성)
+        (3) 재사용성
+    ```
+    
+- Abstraction
+
+```
+* 모듈화는 추상화 개념과 밀접하게 결합되고 있습니다.
+type
+	(1) Abstraction on operations
+			특정 작업이 수행해야 하는 작업을 "how(어떻게)" 수행하는지가 아니라 "What(무엇)"을 수행해야
+			하는지 집중합니다.
+	(2) Abstraction on objects
+			- 유사한 객체를 클래스로 그룹화
+			- 객체의 관련 속성, 특히 객체가 지원하는 작업을 설정(작업에 대한 추상화가 필요하다는 점 유의해야함)
+Abstraction on operations: methods
+- Java에서 Abstraction on operations가 메소드 개념을 통해 실행됨. 
+```
+
+- Methods seen as modules
+    - 특징
+        
+        (1) exported services : 메소드가 “what”을 인식
+        
+        (2) interface : method header ( 입력 매개변수 및 결과의 유형을 지정)
+        
+        (3) exported services : 메소드를 구현하는데 사용되는 기타 메소드 or class
+        
+        (4) internal structure : 메소드가 구현하는 “what” 을 “how”설명하는 Java code
+        
+
+Definition of static methods ( 호출 개체가 없는 메서드 )
+
+```
+Systax : 
+- the header of static method 의 형식
+	public static resultType methodName(formalParamethers){
+			block
+	}
+	
+	public은 정의되는 메서드가 클래스 외부에서 액세스 가능한 상태 (private, protected)
+	static 메소드가 정적 메소드라고 나타냄 ( 호출 객체 x )
+	resultType 메소드가 반환한 결과의 type(void 일경우 어떤 반환하지 않은 경우)
+	methodName 메소드의 이름
+	formalParamethers 매개변수 선언(유형 및 이름) 목록
+	block 메소드가 호출 될 때 실행될 명령문을 포함하는 메소드의 본문
+```
+
+Parameter passing
+
+메소드 정의에 헤더에 formal paramethers가 있다. 
+
+Abstraction on objects
+
+객체에 대한 추상화의 실현
+
+- 유사한 객체를 클래스로 그룹화
+- 객체가 지원하는 작업과 관련된 속성을 설정(이를 위해서는 작업에 대한 추상화를 수행)
+
+Java에서 클래스 정의의 특징
+
+- 클래스 자체를 식별하고 그에 따라 해당 인스턴스의 유형을 식별하는 클래스 이름.
+- 객체 내부에 데이터를 저장할 수 있는 인스턴스 변수
+- 메서드는 클래스의 개체에 대해 호출되어 (Operation) 수행.
+    - instance variables and instance method는 java class object의 속성을 나타냄
+
+access modifiers
+
+public : class client에게 표시 되어야 하는 필드 (클래스 외부)
+
+private : 어떤 client와 관련이 없기 때문에 client에게 숨겨야함
+
+Definition of a class
+
+```
+public class Name{
+	field-1
+	...
+	field-n
+}
+
+* Name 클래스 이름
+* field-1 ... field-n은 해당 속성을 나타내는 클래스의 field 각 field-i 는 data field or
+	operation field일 수 있음
+	 - data field(instance variables)는 class objects의 내부구조를 나타나는데 사용
+	 - operation field(method)는 method의 정의
+```
+
+Rules for accessing the fields of a class
+
+client - > public
+
+instance variables , auxiliary methods → private
+
+Instance variables (클래스에 정의되어 있지만 method body 외부에 정의된 variables)
+
+인스턴스 변수 선언은 method의 지역 변수 선언과 유사하지만 다음과 같이 정의된다.
+
+- variables는 class 내부에 정의되지만 모든 메소드 외부에 정의됨
+- variables 앞에 access modifier가 옴 ( 보통 private)
+- variables는 object가 생성될 때 기본값으로 또는 생성자에 의해 명시적으로 항상 초기화 된다.
+
+  * 연관된 메모리 위치가 생성될 때 반드시 초기화되지 않은 로컬 변수와 다르다
+
+Instance variables는 전체 class가 아닌 단일 개체와 연결, 즉, 각개체에는 고유한 instance variables가 있다
+
+Lifetime of instance variables
+
+  - 해당 변수가 속한 개체의 수명과 정확히 일치.
+
+모든 instance method에는 this로 표시되는 implicit formal parameter가 있다. 이러한 parameter는 invocation object(호출된 객체)를 나타냄. 즉, 메소드가 호출되면 호출 객채가 바인딩 되어서 actual parameter로 작용. 
+
+use of this
+
+일반적으로 메소드 내부에 instance variables가 동일한 name으로 선언된 local variables(or formal parameter)가 있을때 instance variables와 local variables와 구별하고 싶을때 사용.
+
+```java
+public class Person {
+  private String name;
+  private String residence;
+
+  public String getName() {
+    return name;
+  }
+  public String getResidence() {
+    String residence;
+       // local variable와 같은 이름의 instance variables를 마킹
+    residence = this.residence;
+       // instance var와 local var를 구별하는데 사용
+    return residence;
+       // local variables 참조
+  }
+  public void setResidence(String residence) {
+    this.residence = residence;
+       // this is again used to distinguish the instance var from the local var
+  }
+}
+```
+
+Constructors ( 생성자 ) = class name이 같고 명시적인 반환값(void도 x)이 없는 클래스(static도 x) 아닌 단순한 method다.
+
+objects의 private instance variable를 명시적으로 초기화 할 수 있게 하려면 Constructors를 사용해야 한다. 
+
+Invocation of constructor (생성자 호출)
+
+```java
+public class person2{
+		public person2(String n, String r){
+			this.name = n;
+			this.residence = r;
+}
+```
+
+constructor 는 new 연산자를 사용하여 object가 생성될 때 run-time support에 의해 자동으로 호출됨.
+
+*run-time support는 클래스의 object는 생성하고 parameter로 전달된 값에 대해 field name 과 field residence를 명시적으로 초기화하는 생성자 person(String, String)을 호출. 그러면 새로 생성된 object에 대한 참조가 변수 p에 할당됨.
+
+*new 연산자는 생성자를 사용하여 object를 생성하고 해당 object에 대한 참조를 return함
+
+Overloading of constructors
+
+Java는 메소드의 오버로딩을 허용하고 constructors의 method의 특수한 경우이므로 class에 대해 여러 constructor를 정의하는것이 가능
+
+Standard constructor (생성자 정의가 포함되지 않은 모든 클래스에 대해 컴파일러가 자동적으로 생성한 인수가 없는 생성자이다 )
+
+constructor define가 포함되지 않은 class의 객체를 생성하면 소위 standard constructors가 호출됨
+
+- 초기화된 instance variable는 기본값으로 유지, 기본값은 variable와 관련된 메모리 위치가 예약될 때 run-time support에 의해 자동으로 할당된 값
+- standard constructor의 define가 클래스에 명시적ㅇ로 있는 경우 컴파일러에 의해 자동으로 금지됨. 특히 프로그래머는 standard constructor를 대체하는 constructor without arguments를 명시적으로 정의 가능
+
+```java
+public Person() { // constructor without arguments (인수가 없는 생성자)
+  name = "John Smith";
+  residence = null;
+}
+```
+
+디자인 방법론
+
+문제를 다양한 하위 문제로 나누고 각각을 개별적으로 해결함으로써 구조화된 방식으로 java 클래스를 실현 할 수 있도록 다양한 단계로 클래스를 설계하는 방법론을 제시합니다. 이러한 방식으로 우리는 간단하고 효과적인 방법으로 클래스 구현의 복잡성을 처리 가능
+
+(1) 클래스 명세부터 시작하여, 구현하고자 하는 클래스의 속성과 서비스를 식별
+
+(2) 필요한 인스턴스 변수를 식별하여 클래스 객체에 대한 표현을 선택
+
+(3) 클래스의 public method header를 선택. 이 단계에서 클래스의 client가 우리가 구현하고 있는 클래스의     object를 사용해야 하는 방식을 결정.
+
+(4) 우리는 코드를 단순화 하고 구조화하기 위해 보조 method를 도입함으로써 public method의 body를 실현
+
+클래스 디자인
+
+```java
+public class Car{
+	// representataion of the objects ( 
+	private String plate;
+	private String model;
+	private String color;
+	private Person owner;
+
+// public methods realizing the requested functionalities
+// constructors
+	public Car(String p, String m, String c){
+			....
+	}
+	// other public methods
+	public String getPlate(){
+		....
+		// realization of the methods
+		return plate
+	}
+	public String getModel(){
+		....
+		return model;
+	}
+	public String getColor(){
+		....
+		return color;
+	}
+	public String getOwner(){
+		....
+		return owner;
+	}
+	public void setColor(String newColor){
+		....
+		color = newColor;
+	}
+	public void setOwner(String newOwner){
+		....
+		owner = newOwner;
+	}
+
+}
+```
+
+클래스 디자인의 예 : 클라이언트
+
+```java
+public class CarServices{
+	public static void spray(Car car, String color){
+		car.setColor(color);
+	}
+	public static Car registerAlfal47(String pla, String col){
+		return new Car(pla, "Alfal47", col);
+	}
+}
+
+public class Main{
+	// 보조 메서드
+	public static void printCarData(Car a){
+		System.out.println("자동차: " + a.getPlate() + ", " + a.getOwner() + ", " +
+												a.getModel() + ", " + a.getColor());
+	}
+	// 보조 메서드
+	public static void printOwnerData(Car a){
+		System.out.println("소유자: " + a.getOwner().getName() + ", " + a.getOwner().getResidence());
+	}
+
+	public static void main(String[] args){
+		Car a = new Car("313", "Fiat 500", "Red and Blu");
+		printCarData(a);
+		Person p = new Person("Paperino", "Paperopoli");
+		a.setOwner(p);
+		printOwnerData(a);
+		CarServices.spray(a, "Maranello Red");
+		car b = CarServices.registerAlfal47("131", "Alfa Red");
+		printCarData(b);
+    Person c = new Person("Clarabella", "Topolinia");
+    b.setOwner(c);
+    printOwnerData(b);
+  }
+}
+	
+
+```
+
+Inheritance
+
+객체지향 언어의 Inheritance은 기존 class를 특수화한 클래스를 정의할 수 있는 가능성으로 구성. 
+
+하위 클래스는 상위 클래스의 모든 메서드와 인스턴스 변수를 *상속하며 , 추가로 자체 메서드와 인스턴스 변수를 가질 수도 있습니다.*
+
+```java
+public class Student extends Person{
+		....
+}
+
+// Student는 Person의 하위 클래스고 Persond 은 Student의 슈퍼 클래스
+// Student는 기본클래스인 Person의 파생 클래스다
+```
+
+Fundamental features of derived classes ( 파생 클래스의 기본 기능)
+
+- basic class에 대해 정의된 모든 속성(인스턴스 변수 및 메서드)는 파생 클래스에 대해 implicit로 정의. 즉 파생 클래스에 의해 Inheritance
+- derived class는 basic class에서 상속된 속성과 관련하여 추가 속성을 가질수 있음.
+- derived class는 각 인스턴스 basic class의 인스턴스 이기도 하다. 따라서 basic class 개체를 사용할 수 있는 모든 상황에서는 derived class의 object를 사용할 수 있다.
+- derived class의 object를 사용하는 것은 가능한 각 상황에서는 basic class의 object를 사용하는 것이 불가능함
+
+Use of super
+
+일반적으로 하위 클래스에 자체 instance variable가 있는 경우 해당 constructors의 먼저 super class의 object를 생성한 다음 자체 instance variable를 생성해야 한다.
+
+```
+Note:
+	Q. What happens if we forget to insert super()?
+	A. super class의 argument가 없는 constructor가 자동으로 호출됨.
+	Q. What happend if we forget to define constructors for the subclass?
+	A. argument가 없는 constructor가 자동적으로 정의됨. 이러한 constructors는 superclass의
+		 argument 없이 constructor를 호출하고 subclass의 적절한(상속되지않은) instance variables
+		 기본값으로 초기화
+	* 이 과정에서 자동정의를 절대 사용하지 않습니다. 대신 super()를 호출하는 방식으로 subclass의 
+		constructor를 명시적으로 정의해야함.
+```
+
+Inherited methods and variables
+
+Student 클래스의 모든 객체는 Student 에 정의 된 적절한 메서드와 인스턴스 변수를 갖는 것 외에도 Person 의 모든 메서드와 인스턴스 변수를 *상속합니다*
+
+```java
+public class TestStudent {
+  public static void main(String[] args) {
+    Person p = new Person("Daniele", "Roma");
+    System.out.println(p.getName());
+    System.out.println(p.getResidence());
+    Student s = new Student("Jacopo", "Roma", "Engineering");
+    System.out.println(s.getName());       // OK! method inherited from Person
+    System.out.println(s.getResidence());  // OK! method inherited from Person
+    System.out.println(s.getFaculty());    // OK! method defined in Student
+  }
+}
+```
+
+Compatibility (호환성)
+
+derived class 의 object는 basic class의 object와 호환됨.
+
+Overriding of methods
+
+우리는 super class의 method m() 과 정확히 동일한 signature를 갖는 method m()을 subclass에 정의할 때 method m()의 overriding을 수행한다고 말한다.
+
+Overloading 다르다.
+
+Polymorphism(다형성)
+
+method를 overriding을 하면 polymorphism이 발생. 이는 동일한 signature를 사용하여 다르게 동작하는 method가 class 계층 구조에 존재함을 의미한다.
