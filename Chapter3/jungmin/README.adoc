@@ -1,0 +1,72 @@
+Modularization(모듈화)
+
+프로그램은 모듈이라고 불리는 자율적인 부분으로 구성되어야 한다.
+다양한 모듈은 정확한 관계를 통해 서로 연관되어있다.
+
+모듈이란 서로 밀접하게 연관된 패키지들과 리소스들의 그룹이다.
+
+특징
+- Service exported : 메서드가 무엇을 인식하는지
+- An interface : 해당 서비스를 내보내는 방식 -> 메서드 헤더
+- Imported services : 클라이언트가 사용하는 모듈의 서비스
+- An internal structure : 모듈이 어떻게 구현되는지
+
+모듈화를 사용하면 할 수 있는 것
+
+- 요청된 문제를 해결하는 데 필요한 모듈을 정의한다.
+- 우리는 이러한 모듈이 어떻게 관련되어 있는지 정의 한다.
+- 각 모듈을 다른 모듈과 독립적으로 개발한다.
+
+-> 이러한 방식으로 프로그램 처리를 단순화 할 수 있고 품질을 향상 시킬 수 있다.
+ - readability of the program
+ - extensibility (확장성)
+ - reusability of parts (다양한 목적으로 프로그램 일부 재사용)
+
+Abstraction
+
+모듈화는 추상화 개념과 밀접하게 결합되어 있다.
+
+유형
+- Abstraction of operations : 어떻게 해야 할지가 아닌 무엇을 수행해야 하는지에 집중
+	-> method를 통해 실현
+- Abstraction on object : 
+	1. 유사한 객체(동일한 속성을 가진 객체)를 클래스로 그룹화한다.
+	 ex) 소나타, 아반떼, 토레스 -> 차 (그룹화)
+	2. 우리는 객체의 관련 속성, 특히 객체가 지원하는 작업을 설정
+
+Static method (정적 메서드)
+
+- 정적 메서드는 호출 객체가 없는 메서드(클래스에 정의됨) 입니다.
+
+Public static resultType methodName(formal parameter)
+Static : 메서드가 정적임을 나타냄.
+resultType : 반화한 결과의 탑입을 정해주는 것을 나타냄.
+
+- 반환된 결과는 메소드에서 호출된 값이다.
+
+메서드 호출에는 메서드 인수로 사용해야 하는 formal parameter가 포함된다. 
+이러한 parameter를 메서드 정의 헤더에 나타나는 formal parameter와 구별하기 위해 actual parameter 라 한다.
+
+public static String duplicate(String pf) { <- formal parameter
+        return pf + ", " + pf;
+    }
+    public static void main(String[] args) {
+        String s;
+        s = duplicate("pippo"+ "&" + "toplino"); <- actual parameter
+        System.out.println(s); 
+    }
+
+1. formal parameter 가  "pippo"+ "&" + "toplino” 문자열을 나타내는 객체에 대한 참조로 초기화 된다.
+2. return을 통해 String 값을 반환한다.
+3. Formal parameter와 local variable에 대한 메모리가 해제된다.  -> formal parameter에 해당하는 메모리 위치가 해제 됩니다.
+4. 이제 실행은 메서드 호출에 의해 멈춘 지점부터 계속된다.
+
+Local variable 
+ 메소드 내의 있는 변수를 local variable이라 한다.
+- Scope (범위) : 지역 변수의 범위(int형)
+- lifetime (수명) : 다음 메서드가 호출되기 전까지 유지된다.
+- 
+
+Method Overloading
+- 메서드 이름이 같은 두 개의 메서드는 존재 할 수 없다. 하지만 파라미터의 값이 다르다면 사용할 수 있다 -> 메서드 오버로딩이라 한다.
+
