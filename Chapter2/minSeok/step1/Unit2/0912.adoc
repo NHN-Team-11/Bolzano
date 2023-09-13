@@ -63,6 +63,11 @@ class : 동일한 속성(인스터스)를 가진 객체 집합으로 구성됨.
 
 - String class(문자열)
 
+* StringBuffer vs StringBuilder
+  둘다 가변성을 가진다.
+  차이점은 StringBuilder는 순서 상관없이 들어온대로 받아들여서 오류가 생길 위험성이 큼. 그래서 일회용성이 높음 속도가 빠른편
+  StringBuffer synchronized를 이용해 순서를 정하고 들어오는걸 받아들여서 안정적임 그러나 속도가 느린편.
+
 void는 메소드가 어던 결과도 반환하지 않는다는 사실을 나타냄. 즉 메소드는 함수가 아닌 작업을 구현함
 
 Overloaded : 동일한 클래스의 두 메서드는 signatures가 다른 경우 동일한 이름을 가질 수 있다. 이름이 같지만 시그니처가 다른 메서드를 overloaded 되었다고 한다.
