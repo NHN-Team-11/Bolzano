@@ -16,36 +16,36 @@
 |Chapter
 |Name
 
-|1
-|Introduction to programming
+| 1
+| link:./Chapter1[Introduction to programming]
 
-|2
-|Use of objects and variables
+| 2
+| link:./Chapter2[Use of objects and variables]
 
-|3
-|Definition of methods and classes
+| 3
+| link:./Chapter1[Definition of methods and classes]
 
-|4
-|Primitive data types
+| 4
+| Primitive data types
 
-|5
-|Conditional statements
+| 5
+| Conditional statements
 
-|6
-|Loop statements
+| 6
+| Loop statements
 
-|7
-|Arrays and matrices
+| 7
+| Arrays and matrices
 
-|8
-|Files and input/output streams
+| 8
+| Files and input/output streams
 
-|9
-|Program errors and exception handling
+| 9
+| Program errors and exception handling
 
-|10
-|Recursion
+| 10
+| Recursion
 
-|11
-|Dynamic arrays and linked lists
+| 11
+| Dynamic arrays and linked lists
 |===
