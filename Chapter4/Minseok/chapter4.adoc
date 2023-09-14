@@ -21,18 +21,6 @@
 - int
     
     
-    | Type | int |  |
-    | --- | --- | --- |
-    | Dimension | 32 bit (4 byte) |  |
-    | Domain | the set of integer numbers in the interval [- 2**31, + 2**31 - 1] |  |
-    |  | (more than 4 billion values) |  |
-    | Operations | + | sum |
-    |  | - | difference |
-    |  | * | product |
-    |  | / | integer division |
-    |  | % | rest of the integer division |
-    | Literals | sequences of digits denoting values of the domain (e.g., 275930) |  |
-    
     ex ) int a, b, c // int형 변수 선언
     
     a = 1; // 리터럴 사용
@@ -129,18 +117,6 @@
     
 - Byte
     
-    
-    | Type | byte |  |
-    | --- | --- | --- |
-    | Dimension | 8 bit (1 byte) |  |
-    | Domain | the set of integer numbers in the interval [- 2**7, + 2**7 - 1] = [- 128, + 127] |  |
-    | Operations | + | sum |
-    |  | - | difference |
-    |  | * | product |
-    |  | / | integer division |
-    |  | % | rest of the integer division |
-    | Literals | sequences of digits denoting values of the domain (e.g., 47) |  |
-    
     *Example:*
     
     > byte a, b, c;              // 바이트 유형의 변수 선언
@@ -151,17 +127,6 @@
 - Short
     
     
-    | Type | short |  |
-    | --- | --- | --- |
-    | Dimension | 16 bit (2 byte) |  |
-    | Domain | the set of integer numbers in the interval [- 215, + 215 - 1] = [- 32768, + 32767] |  |
-    | Operations | + | sum |
-    |  | - | difference |
-    |  | * | product |
-    |  | / | integer division |
-    |  | % | rest of the integer division |
-    | Literals | sequences of digits denoting values of the domain (e.g., 22700) |  |
-    
     *Example:*
     
     > short a, b, c;                  // Declaration of variables of type short
@@ -170,19 +135,6 @@
     c = b % a;                      // Arithmetic expression
     > 
 - long
-    
-    
-    | Type | long |  |
-    | --- | --- | --- |
-    | Dimension | 64 bit (8 byte) |  |
-    | Domain | the set of integer numbers in the interval [- 2**63, + 2**63 - 1] |  |
-    | Operations | + | sum |
-    |  | - | difference |
-    |  | * | product |
-    |  | / | integer division |
-    |  | % | rest of the integer division |
-    | Literals | sequences of digits ending with an l (or L) |  |
-    |  | denoting values of the domain (e.g., 9000000000L) |  |
     
     *Example:*
     
@@ -221,43 +173,9 @@
     - writing
         - print, println 메소드 사용
     
-- **Predefined static methods for mathematical operations**
+- Predefined static methods for mathematical operations
     
     
-    | Method Summary |  |
-    | --- | --- |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#abs(double)(double a)          Returns the absolute value of a double value. |
-    | static float | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#abs(float)(float a)          Returns the absolute value of a float value. |
-    | static int | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#abs(int)(int a)          Returns the absolute value of an int value. |
-    | static long | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#abs(long)(long a)          Returns the absolute value of a long value. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#acos(double)(double a)          Returns the arc cosine of an angle, in the range of 0.0 through pi. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#asin(double)(double a)          Returns the arc sine of an angle, in the range of -pi/2 through pi/2. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#atan(double)(double a)          Returns the arc tangent of an angle, in the range of -pi/2 through pi/2. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#atan2(double,%20double)(double a, double b)          Converts rectangular coordinates (b, a) to polar (r, theta). |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#ceil(double)(double a)          Returns the smallest (closest to negative infinity) double value that is not less than the argument and is equal to a mathematical integer. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#cos(double)(double a)          Returns the trigonometric cosine of an angle. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#exp(double)(double a)          Returns the exponential number e (i.e., 2.718...) raised to the power of a double value. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#floor(double)(double a)          Returns the largest (closest to positive infinity) double value that is not greater than the argument and is equal to a mathematical integer. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#IEEEremainder(double,%20double)(double f1, double f2)          Computes the remainder operation on two arguments as prescribed by the IEEE 754 standard. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#log(double)(double a)          Returns the natural logarithm (base e) of a double value. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#max(double,%20double)(double a, double b)          Returns the greater of two double values. |
-    | static float | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#max(float,%20float)(float a, float b)          Returns the greater of two float values. |
-    | static int | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#max(int,%20int)(int a, int b)          Returns the greater of two int values. |
-    | static long | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#max(long,%20long)(long a, long b)          Returns the greater of two long values. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#min(double,%20double)(double a, double b)          Returns the smaller of two double values. |
-    | static float | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#min(float,%20float)(float a, float b)          Returns the smaller of two float values. |
-    | static int | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#min(int,%20int)(int a, int b)          Returns the smaller of two int values. |
-    | static long | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#min(long,%20long)(long a, long b)          Returns the smaller of two long values. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#pow(double,%20double)(double a, double b)          Returns of value of the first argument raised to the power of the second argument. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#random()()          Returns a double value with a positive sign, greater than or equal to 0.0 and less than 1.0. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#rint(double)(double a)          Returns the double value that is closest in value to a and is equal to a mathematical integer. |
-    | static long | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#round(double)(double a)          Returns the closest long to the argument. |
-    | static int | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#round(float)(float a)          Returns the closest int to the argument. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#sin(double)(double a)          Returns the trigonometric sine of an angle. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#sqrt(double)(double a)          Returns the correctly rounded positive square root of a double value. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#tan(double)(double a)          Returns the trigonometric tangent of an angle. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#toDegrees(double)(double angrad)          Converts an angle measured in radians to the equivalent angle measured in degrees. |
-    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#toRadians(double)(double angdeg)          Converts an angle measured in degrees to the equivalent angle measured in radians. |
 - char
     
     문자열은 char 유형의 값인 단일 문자로 구성됨. char type의 변수는 단일 문잠나 포함될 수 있음. ‘ ‘ 사용.
@@ -307,17 +225,9 @@
 - Boolean
     
     Java에서 진리값을 나타내느 표현식 (true , false)
+
     
-    [제목 없는 데이터베이스](https://www.notion.so/48c3f7d2aa774b4b9107e095ef770324?pvs=21)
-    
-    | Type | boolean |  |  |
-    | --- | --- | --- | --- |
-    | Dimension | 1 bit |  |  |
-    | Domain | the two truth values true and false |  |  |
-    | Operations | && | and | Note: in a && b, the value of b is computed only if a is true |
-    |  | || | or | Note: in a || b, the value of b is computed only if a is false |
-    |  | ! | not |  |
-    | Literals | true and false |  |  |
+
     
 - Predicates
     
