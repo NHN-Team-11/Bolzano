@@ -1,4 +1,3 @@
-package Unit3;
 
 public class parameters {
     public static String duplicate(String pf) {

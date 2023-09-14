@@ -1,4 +1,3 @@
-package Unit3;
 
 public class Person {
     // instance varialbes(data field)

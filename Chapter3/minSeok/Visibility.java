@@ -1,4 +1,3 @@
-package Unit3;
 
 public class Visibility {
     public static String duplicate(String s) {

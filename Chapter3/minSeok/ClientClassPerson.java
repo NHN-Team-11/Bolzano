@@ -1,4 +1,3 @@
-package Unit3;
 
 public class ClientClassPerson {
     public static void main(String[] args) {

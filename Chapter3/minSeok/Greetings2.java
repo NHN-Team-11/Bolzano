@@ -1,4 +1,3 @@
-package Unit3;
 
 public class Greetings2 {
     public static void printGreeting() {
