@@ -1,3 +1,4 @@
+package exercise;
 public class Message {
     private String sendphoneNumber;
     private String reciphoneNumber;

@@ -1,3 +1,4 @@
+package exercise;
 public class BolzanoUniv extends Textbook {
 
     private String faculty;

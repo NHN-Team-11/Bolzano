@@ -1,3 +1,5 @@
+package exercise;
+
 public class ex3_8 {
     public static void main(String[] args) {
         Book book1 = new BolzanoUniv("자바의 정석", "남궁성", "컴퓨터 공학", "문지환");

@@ -1,3 +1,4 @@
+package exercise;
 public class MessageText {
     private String code;
     private String message;
