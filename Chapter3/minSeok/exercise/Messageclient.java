@@ -1,4 +1,5 @@
 package exercise;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,5 +16,19 @@ public class Messageclient {
         Message msg1 = new Message(sendphoneNumber, reciverphoneNumber, msg);
 
         msg1.printMessage();
+    }
+}
+
+class Date {
+    int month;
+    int day;
+
+    public Date() {
+        this(1, 1);
+    }
+
+    public Date(int month, int day) {
+        this.month = month;
+        this.day = day;
     }
 }

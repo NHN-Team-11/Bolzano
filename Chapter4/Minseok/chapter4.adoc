@@ -1,0 +1,336 @@
+# Unit4
+
+- Data types in mathematics
+    
+    domain : a set of possible values (integer numbers, real numbers)
+    
+    a set of operations on the elements of the domain(sum , multiple)
+    
+    a set of literals (수학 상수)
+- Primitive data types in Java
+    
+    int, long, short, byte, float 및 double 이 기본 데이터 타입이며 정수와 실수를 표현
+    
+    Domain : 기본 데이터 유형을 통해 컴퓨터 메모리에 표시가 될 수 있는 집합
+    
+    연산집합 : 기본 데이터 유형의 값에 대해 기본 연산을 수행 할  수 있게 해주는 프로그래밍 언어의 연산자
+    
+    Literals 집합 : 기본 데이터 유형의 값을 정의하는 언어 기호
+    
+    - 특정 데이터 유형의 값이 차지하는 메모리 크기를 지정하며 이는 숫자 데이터 유형에 중요
+- int
+    
+    
+    | Type | int |  |
+    | --- | --- | --- |
+    | Dimension | 32 bit (4 byte) |  |
+    | Domain | the set of integer numbers in the interval [- 2**31, + 2**31 - 1] |  |
+    |  | (more than 4 billion values) |  |
+    | Operations | + | sum |
+    |  | - | difference |
+    |  | * | product |
+    |  | / | integer division |
+    |  | % | rest of the integer division |
+    | Literals | sequences of digits denoting values of the domain (e.g., 275930) |  |
+    
+    ex ) int a, b, c // int형 변수 선언
+    
+    a = 1; // 리터럴 사용
+    
+    b = 2;
+    
+    c = a + b; // 산술 표현식
+
+- Variables of primitive types and variables of type reference to an object
+    - 두 변수의 차이점
+        - 객체에 대한 참조 유형의 변수 값은 객체 자체에 대한 참조가 아니라 객체에 대한 참조다
+        - 기본 유형의 변수 값은 기본 유형 자체의 값.
+    - use of variables of type reference to object;
+        
+        ```java
+        public class Account {
+          public int bal;
+          public Account(int x) {
+            bal = x;
+          }
+        }
+        ...
+        Account r1, r2;
+        r1 = new Account(100);
+        r2 = r1;
+        r2.bal = 234;
+        System.out.println(r1.bal); // prints 234
+        
+        변수 r1 및 변수 r2에는 객체가 아닌 객체에 대한 참조가 포함됨. r2 = r1 할당은 객체 자체가 아닌
+        Account 유형의 객체에 대한 참조를 r2에 할당. r2에서 참조되는 객체에 대한 각 연속 수정은 r1을
+        통해서도 표시가능.
+        ```
+        
+    - Use of variables of primitive types:
+        
+        ```java
+        int c1, c2;
+        c1 = 100;
+        c2 = c1;
+        c2 = 234;
+        System.out.println(c1);
+        c2 = c1 할당은 c2에 값 100을 할당합니다. c2의 연속적인 수정은 c1에 영향을 주지 않습니다.
+        ```
+        
+- variables of primitive types
+    - wrapper class
+        
+        
+        | Primitive data type | Corresponding wrapper class |
+        | --- | --- |
+        | byte | Byte |
+        | short | Short |
+        | int | Integer |
+        | long | Long |
+        | float | Float |
+        | double | Double |
+        | char | Character |
+        | boolean | Boolean |
+- Reading of number of type int
+    
+    1. input channel에서 문자열을 읽는 메소드 ( `ex) JOptionPane 클래스의 showInputDialog`
+    
+    1. Integer클래스의 parseInt를 사용하여 int 유형의 값으로 읽은 문자열에 해당숫자를 얻음 (Integer.parseInt)
+    
+- Numeric overflow ( 숫자 오버 플로 )
+    
+    기본 유형으로 표현될 수 있는 값 세트는 특정 간격으로 제한됨 . 주어진 데이터 유형의 값에 산술 연산자를 적용하면 이 간격을 벗어나는 결과를 얻을 수 있으므로 동일한 기본 데이터 유형으로 표현할 수 없다. 이러한 상황을 오버플로라고한다.
+    
+    ```java
+    int x = 2147483647;    // int로 표현할 수 있는 최대값
+    int y = x + 1;         // 오버플로를 일으키는 연산
+                           // 2147483648은 int로 표현할 수 없음.
+    System.out.println(y); // prints -2147483648 instead of 2147483648
+                           // (which is the number we would expect)
+    ```
+    
+- Definition of constant and magic numbers
+    - magic number의 의미는 설명없이 코드에 사용되는 숫자 ( literal ). 매직 넘버를 사용하면 프로그램 읽기가 어려워지고 유지 관리 업데이트가 더 어려워짐.
+        
+        ```java
+        int salary = 20000 * workedhours; // 20000의 의미는 뭔가?
+        numeric literals 대신 constant(상수)라고 하는 기호를 정의하고 이를 사용하는 것이 더 좋다.
+        
+        final int SALARY_PER_HOUR = 20000; // constant
+        int salary = SALARY_PER_HOUR * workedhours;
+        ```
+        
+    
+    constant의 사용의 이점
+    
+    (1) 프로그램의 가독성 : 
+    
+    (2) 프로그램 수정 가능성 :
+    
+- Byte
+    
+    
+    | Type | byte |  |
+    | --- | --- | --- |
+    | Dimension | 8 bit (1 byte) |  |
+    | Domain | the set of integer numbers in the interval [- 2**7, + 2**7 - 1] = [- 128, + 127] |  |
+    | Operations | + | sum |
+    |  | - | difference |
+    |  | * | product |
+    |  | / | integer division |
+    |  | % | rest of the integer division |
+    | Literals | sequences of digits denoting values of the domain (e.g., 47) |  |
+    
+    *Example:*
+    
+    > byte a, b, c;              // 바이트 유형의 변수 선언
+    a = 1;                     // Use of literals
+    b = Byte.parseByte("47");  // 문자열을 바이트 형으로 변경
+    c = a - b;                 // 산술 표현식
+    > 
+- Short
+    
+    
+    | Type | short |  |
+    | --- | --- | --- |
+    | Dimension | 16 bit (2 byte) |  |
+    | Domain | the set of integer numbers in the interval [- 215, + 215 - 1] = [- 32768, + 32767] |  |
+    | Operations | + | sum |
+    |  | - | difference |
+    |  | * | product |
+    |  | / | integer division |
+    |  | % | rest of the integer division |
+    | Literals | sequences of digits denoting values of the domain (e.g., 22700) |  |
+    
+    *Example:*
+    
+    > short a, b, c;                  // Declaration of variables of type short
+    a = 11300;                      // Use of literals
+    b = Short.parseShort("22605");  // Conversion from String to short
+    c = b % a;                      // Arithmetic expression
+    > 
+- long
+    
+    
+    | Type | long |  |
+    | --- | --- | --- |
+    | Dimension | 64 bit (8 byte) |  |
+    | Domain | the set of integer numbers in the interval [- 2**63, + 2**63 - 1] |  |
+    | Operations | + | sum |
+    |  | - | difference |
+    |  | * | product |
+    |  | / | integer division |
+    |  | % | rest of the integer division |
+    | Literals | sequences of digits ending with an l (or L) |  |
+    |  | denoting values of the domain (e.g., 9000000000L) |  |
+    
+    *Example:*
+    
+    > long a, b, c;                      // Declaration of variables of type long
+    a = 9000000000L;                   // Use of literals
+    b = Long.parseLong("9000000000l"); // Conversion from String to long
+    c = b / 300000L
+    > 
+- double
+    
+    [제목 없는 데이터베이스](https://www.notion.so/3d66b299260e43738ca55339e04d37a8?pvs=21)
+    
+    *Example:*
+    
+    > double pi, p2;  // Declaration of variables of type double
+    pi = 3.14;      // Use of literals
+    p2 = 628E-2d;   // Use of literals
+    p2 = pi * 2;    // Arithmetic expression
+    > 
+- float
+    
+    [제목 없는 데이터베이스](https://www.notion.so/da87032d220d4f36a11ba7d33a30dc05?pvs=21)
+    
+    *Example:*
+    
+    > float pi, a, b;  // Declaration of variables of type float
+    pi = 3.14f;      // Use of literals
+    a = 314E-2F      // Use of literals
+    a++;             // Use of increment operator (equivalent to: a = a + 1.0d;)
+    > 
+    
+- double or float type
+    - reading
+        1. JOptionPane 클래스의 showInputDialog사용
+        2. Double.parseDouble 사용
+    - writing
+        - print, println 메소드 사용
+    
+- **Predefined static methods for mathematical operations**
+    
+    
+    | Method Summary |  |
+    | --- | --- |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#abs(double)(double a)          Returns the absolute value of a double value. |
+    | static float | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#abs(float)(float a)          Returns the absolute value of a float value. |
+    | static int | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#abs(int)(int a)          Returns the absolute value of an int value. |
+    | static long | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#abs(long)(long a)          Returns the absolute value of a long value. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#acos(double)(double a)          Returns the arc cosine of an angle, in the range of 0.0 through pi. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#asin(double)(double a)          Returns the arc sine of an angle, in the range of -pi/2 through pi/2. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#atan(double)(double a)          Returns the arc tangent of an angle, in the range of -pi/2 through pi/2. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#atan2(double,%20double)(double a, double b)          Converts rectangular coordinates (b, a) to polar (r, theta). |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#ceil(double)(double a)          Returns the smallest (closest to negative infinity) double value that is not less than the argument and is equal to a mathematical integer. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#cos(double)(double a)          Returns the trigonometric cosine of an angle. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#exp(double)(double a)          Returns the exponential number e (i.e., 2.718...) raised to the power of a double value. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#floor(double)(double a)          Returns the largest (closest to positive infinity) double value that is not greater than the argument and is equal to a mathematical integer. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#IEEEremainder(double,%20double)(double f1, double f2)          Computes the remainder operation on two arguments as prescribed by the IEEE 754 standard. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#log(double)(double a)          Returns the natural logarithm (base e) of a double value. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#max(double,%20double)(double a, double b)          Returns the greater of two double values. |
+    | static float | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#max(float,%20float)(float a, float b)          Returns the greater of two float values. |
+    | static int | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#max(int,%20int)(int a, int b)          Returns the greater of two int values. |
+    | static long | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#max(long,%20long)(long a, long b)          Returns the greater of two long values. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#min(double,%20double)(double a, double b)          Returns the smaller of two double values. |
+    | static float | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#min(float,%20float)(float a, float b)          Returns the smaller of two float values. |
+    | static int | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#min(int,%20int)(int a, int b)          Returns the smaller of two int values. |
+    | static long | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#min(long,%20long)(long a, long b)          Returns the smaller of two long values. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#pow(double,%20double)(double a, double b)          Returns of value of the first argument raised to the power of the second argument. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#random()()          Returns a double value with a positive sign, greater than or equal to 0.0 and less than 1.0. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#rint(double)(double a)          Returns the double value that is closest in value to a and is equal to a mathematical integer. |
+    | static long | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#round(double)(double a)          Returns the closest long to the argument. |
+    | static int | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#round(float)(float a)          Returns the closest int to the argument. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#sin(double)(double a)          Returns the trigonometric sine of an angle. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#sqrt(double)(double a)          Returns the correctly rounded positive square root of a double value. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#tan(double)(double a)          Returns the trigonometric tangent of an angle. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#toDegrees(double)(double angrad)          Converts an angle measured in radians to the equivalent angle measured in degrees. |
+    | static double | http://www.inf.unibz.it/~calvanese/teaching/java-docs/api/java/lang/Math.html#toRadians(double)(double angdeg)          Converts an angle measured in degrees to the equivalent angle measured in radians. |
+- char
+    
+    문자열은 char 유형의 값인 단일 문자로 구성됨. char type의 변수는 단일 문잠나 포함될 수 있음. ‘ ‘ 사용.
+    
+    - char 에서 int로 변환
+        
+        char c = ‘A’;
+        
+        int i = c;
+        
+        System.out.println(c);
+        
+    - int에서 char로의 변환은 unicode에서 문자로 얻는 데 해당.
+        
+        int i = 65;
+        
+        char c = (char) i;
+        
+        System.out.println(c);
+        
+    - char에서 String 으로 변환
+        
+        char c = ‘A’;
+        
+        String s = String.valueOf(c);
+        
+        String s1 = Character.toString(c);
+        
+    - String유형 object에서 char 추출
+        
+        String s = “안녕하세요”;
+        
+        char c = s.charAt(0);
+        
+    - Reading char
+        
+        String s = JOptionPane.showInputDialog(”Insert a charater”);
+        
+        char c = s.charAt(0);
+        
+    - Writing a char:
+        
+        char c = ‘a’;
+        
+        System.out.println(c);
+        
+- Boolean
+    
+    Java에서 진리값을 나타내느 표현식 (true , false)
+    
+    [제목 없는 데이터베이스](https://www.notion.so/48c3f7d2aa774b4b9107e095ef770324?pvs=21)
+    
+    | Type | boolean |  |  |
+    | --- | --- | --- | --- |
+    | Dimension | 1 bit |  |  |
+    | Domain | the two truth values true and false |  |  |
+    | Operations | && | and | Note: in a && b, the value of b is computed only if a is true |
+    |  | || | or | Note: in a || b, the value of b is computed only if a is false |
+    |  | ! | not |  |
+    | Literals | true and false |  |  |
+    
+- Predicates
+    
+    boolean 유형의 값을 반환하는 메서드
+    
+    public static boolean implies(boolean a, boolean b){
+    
+    return (!a || b);
+    
+    }
+    
+- 연산자 사이의 우선순위
+    1. logical negation(!)
+    2. arithmetic operators(산술연산자)
+    3. relational operators(관계연산자)
+    4. logical conjunction(&&) and logical disjunction(||) - 낮은 우선순위
