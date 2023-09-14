@@ -1,5 +1,9 @@
 package Chapter3.채현명;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Book {
     private String title;
     private String author;
@@ -19,6 +23,7 @@ public class Book {
         System.out.println("Title : " + this.title);
         System.out.println("Author : " + this.author);
         System.out.println("Price : " + this.price);
+        //StringBuilder사용
     }
 
     public String getTitle() {
@@ -50,5 +55,11 @@ public class Book {
         System.out.println("--------------------");
         book.printBookPrice();
 
+    }
+
+    public static String getRead() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String line = br.readLine();
+        return line;
     }
 }

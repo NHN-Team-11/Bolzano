@@ -13,8 +13,9 @@ public class Novel7 extends Book1 {
 
     @Override
     public void printBook() {
-        System.out.println("title: " + this.getTitle());
-        System.out.println("authors: " + this.getAuthors());
+        // System.out.println("title: " + this.getTitle());
+        // System.out.println("authors: " + this.getAuthors());
+        super.printBook();
         System.out.println("genre: " + this.genre);
     }
 

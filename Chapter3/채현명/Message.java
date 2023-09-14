@@ -26,7 +26,6 @@ public class Message {
         } else {
             this.sendNumber = newPhoneNumber;
         }
-
     }
 
     public void printMessage() {

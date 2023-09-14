@@ -12,8 +12,10 @@ public class BookClient {
 
         clientBook.setPrice(200000);
         clientBook2.setPrice(9000000);
+        clientBook2.setPrice2(clientBook2, 500000000);
 
         clientBook.printBookPrice();
+        clientBook2.printBookPrice();
     }
 
 }
