@@ -125,3 +125,12 @@ Late binding
 3. toString()은 late binding을 기반으로 이루어진다. 
  	-> toString을 나타내는 유형 - Object
 	-> 객체가 속한 클래스 - Person
+
+Public과 private 구별하는 이유는
+1. 캡슐화로 인해 구별해서 써야한다.
+ex) 빔 프로젝터가 있으면 client가 사용할 수 있는 것은 선을 꽂는 것(HDMI, RGB... 이것들은 또 인터페이스(= 프로젝터의 외부의 메서드?)라 부를 수 있다.)이다. 그럼 이 것을 public으로 정의한다.
+    빔 프로젝터가 고장났으면 내부의 장치들을 고쳐야 할 때 이것은 전문가 들만 건들 수 있다. 그래서 private로 정의한다.
+
+시그니처란?
+예를 들어 public static String MethodName(parameter); -> public, return type, MethodName, parameter를 시그니처라 한다.
+여기 4개중 하나라도 없으면 시그니처가 없다가 말 할 수 있으며 오버로딩은 두개의 메서드 시그니처가 다르면 사용할 수 있다.
