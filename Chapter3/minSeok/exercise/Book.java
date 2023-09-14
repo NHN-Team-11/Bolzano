@@ -1,3 +1,4 @@
+package exercise;
 
 public class Book {
     private String name;
