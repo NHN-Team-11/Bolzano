@@ -12,7 +12,7 @@
 * 진도 목표까지 학습 및 문제 해결 후 README.adoc 작성
 * 코드리뷰: 매일 13시 ~ 15시
 
-[cols=2*, options=header]
+[cols=3*, options=header]
 |===
 |Chapter
 |Name
