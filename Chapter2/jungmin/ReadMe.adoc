@@ -4,6 +4,10 @@ Editor(Inteli J) -> java source code 작성 -> Compiler(Javac) ->
 Libraries - Class file(컴파일러로 만들어진 클래스 파일) ->
 java virtual machine(바이트 코드 해석기) -> 프로그램이 실행됨.
 
+객체(Object) -> 사물 혹은 개념, 논리와 무형적인 것들도 다 객체가 될 수 있다. 독립적으로 존재하며 다른 객체와 서로 상호작용할 수 있다.
+클래스(Class) -> 객체를 만들기 위한 설계도이다.
+인스턴스(instance) -> 클래스로 객체를 만들어 하나의 객체가 생성되어 메모리에 할당된 객체를 인스턴스라 한다.
+
 코드의 가독성(readability)을 위해 -> 들여쓰기(indentation)은 중요하다.
 System.out -> PrintStream의 instance of the predefined
 

@@ -1,4 +1,9 @@
 package Bolzano.Chapter3.jungmin;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 // Exercise 03.1
 public class Book1 {
     private String title;
@@ -31,5 +36,12 @@ public class Book1 {
 
     public void setPrice(int newPrice) {
         this.price = newPrice;
+    }
+
+    public static String read() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String line = br.readLine();
+        br.close();
+        return line;
     }
 }

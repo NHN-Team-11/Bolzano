@@ -17,5 +17,6 @@ public class Practice8 {
         BookService6.price(book2, 10000);
         book1.printBookPrice();
         book2.printBookPrice();
+       
     }
 }
