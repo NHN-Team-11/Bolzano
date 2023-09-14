@@ -20,7 +20,7 @@ Modularization
         (3) 재사용성
     ```
     
-- Abstraction
+- Abstraction ( 코드를 간단하게 만드는 것	)
 
 ```
 * 모듈화는 추상화 개념과 밀접하게 결합되고 있습니다.
