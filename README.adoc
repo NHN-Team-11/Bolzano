@@ -31,7 +31,7 @@
 | O
 
 | 4
-| Primitive data types
+| link:./Chapter4[Primitive data types]
 | X
 
 | 5
