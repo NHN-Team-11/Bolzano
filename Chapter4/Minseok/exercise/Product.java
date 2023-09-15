@@ -1,4 +1,4 @@
-package Bolzano.Chapter4.jungmin;
+package Chapter4.Minseok.exercise;
 
 public class Product {
     private String name;
@@ -21,7 +21,6 @@ public class Product {
         return name + ", " + count + "pieces";
     }
 
-    // Exercise 4.10
     public static char lastCharacter(String s) {
         return s.charAt(s.length() - 1);
     }
