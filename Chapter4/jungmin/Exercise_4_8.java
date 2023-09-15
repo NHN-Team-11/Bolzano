@@ -13,10 +13,12 @@ public class Exercise_4_8 {
     }
 
     public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder();
         int c = 100;
         Account r = new Account(100);
         method(c, r);
-        System.out.println(c + " " + r.bal);
+        sb.append(c + " " + r.bal);
+        System.out.println(sb);
     }
     
 }
