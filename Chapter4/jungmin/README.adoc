@@ -64,6 +64,9 @@
 .Rounding errors(반올림 오류)
  - 1222333444.0f를 1.0을 더하면 똑같이 1.222333444E9가 출력된다. 여기서 1.0을 더하더라도 뒤의 숫자가 반올림 오류가 나서
  근사치가 발생하게 된다.
+ - 컴퓨터는 2진법을 사용하게 된다. 그래서 0.2가 컴퓨터에 들어오게 되면 정확한 0.2의 값을 저장하지 못하게 된다.
+ - 0.2 + 0.2를 더하게 되면 0.4의 값과 같을 수 없게 됩니다.
+ - 위의 문제들 때문에 정확한 소수 연산이 필요할 때는 BigDecimal을 사용하게 됩니다. 
 
 .다양한 기본 숫자 유형을 포함하는 표현식
  - 서로 다른 타입의 변수를 계산할 때 더 큰 타입으로 계산이 된다.
@@ -92,3 +95,47 @@
  . 산술 연산자 (*, +, -, /)
  . 관계 연산자 (<, > ...)
  . 논리 연산자 (&&, ||)
+
+.용어 정리
+. initialize : 변수 초기화 -> 최초로 할당하는 것.
+. allocation : 변수를 바꿔주는 할당
+. declare : 변수 선언 -> 값을 저장하는 공간을 확보 하겠다는 의미.
+. assignment : 변수에 값을 할당 -> int x = 7;
+. side-effect : 값이 allocation이 일어날 때마다 작용하는 것. (setter) 또는 
+reference type에서 두 개의 객체의 값이 의도치 않게 동시에 allocation이 일어날 때를 말함.
+. literal : 변수에 넣는 값이 변하지 않는 데이터(불변 데이터), 참조 변수가 참조하는 데이터는 동적이라 literal이라 할 수 없다.
+. constants : 변하지 않는 변수 또는 참조변수 메모리의 주소값이 변하지 않는 것. 여기서 참조변수의 값이 변하는 것은 상관 없다.
+. expression : 값을 기술한 것. -> int x = 7 
+. statement : 하나의 동작을 기술한 것 -> int x = 7;
+. arithmetic : 연산
+. numeric data -> char, boolean을 뺀 나머지 타입들을 의미한다.
+. appoximate type : 부동 소수점 data type이 포함된다.
+. exact type : 정수 데이터 유형과 decimal data type이 포함된다.
+. primitive type : 변수의 값은 primitive type 자체의 값이다.
+. reference type : 변수의 값은 객체에 대한 reference 일 뿐 객체 자체가 아니다.
+
+.Parameter Passing
+[start = 1]
+. Call by Value(값으로 전달)
+ - actual parameter에서 전달된 값은 호출 수신자 메소드의 formal parameter로 들어가게 된다.
+ 여기서 들어간 parameter는 그저 actual parameter의 복제본이다. 그래서 메소드에서 수행된 수정의 actual parameter에 
+ 영향을 미치지 않는다.
+. Call by reference(참조로 전달)
+ - parameter가 참조에 의해 전달 되는 경우 actual parameter와 formal parameter는 같은 객체를 가르키게 된다. 그래서
+ 메소드에서 formal parameter의 값을 수정하게 되면 해당하는 객체의 값이 바뀌게 되어 actual parameter의 값도 동시에 바뀌게 되는 것이다.
+
+.용어 정리
+. wrapping class : primitive type을 객체로 만들 수 있는 boxing 기능이 있으며 그 반대의 기능인 unboxing 기능도 가지고 있다.
+. operator : 연산자를 의미한다.
+. specific interval : primitive type의 크기(특정 간격)
+. integer cycle : Integer.MAX_VALUE + 1 == Integer.MIN_VALUE의 값과 같다.
+. magic number를 사용하지 않고 final을 declare하여 constant를 만들어서 사용한다.
+. Decimal digit : 10진수의 숫자들을 의미한다. -> 0, 1, 2, 3, 4, ...
+. 만약 Integer type과 floating point를 계산해야한다면 값은 floating point의 값으로 나오게 된다.
+. int a 와 float b 값을 int형으로 표현 하고 싶다면 b를 conversion 해주어야 한다. -> (int)b
+. loss of precision : 어떠한 작업을 수행 할 때 정밀도 손실에 의해 결과가 영향을 받을 수 있다.
+ex) int a = (int)3.75 -> a = 3이 될 것이고 여기서 0.75의 값이 손실 된다.
+. boolean algebra : 이진변수를 사용한 논리적 값에 대한 연산을 다루는 수학.
+. floating point number 비교 : 0이 나오더라도 0이랑 비교하면 false의 값을 얻게 된다. 그래서 == 을 하여 비교 할 수는 없다.
+. 비교하기 위해서는 절댓값 (x - y)의 값을 eps(가장 작은 수)를 비교하여 eps가 더 크거나 같으면 x와 y는 비슷한 수를 가지고 있다는 것을 알 수 잇다.
+. predicate : 결과 값이 boolean type으로 출력되는 것.
