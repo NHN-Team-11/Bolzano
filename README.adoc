@@ -27,11 +27,11 @@
 | O
 
 | 3
-| link:./Chapter1[Definition of methods and classes]
+| link:./Chapter3[Definition of methods and classes]
 | O
 
 | 4
-| Primitive data types
+| link:./Chapter4[Primitive data types]
 | X
 
 | 5
