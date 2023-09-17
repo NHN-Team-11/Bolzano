@@ -8,8 +8,8 @@ java virtual machine(바이트 코드 해석기) -> 프로그램이 실행됨.
 클래스(Class) -> 객체를 만들기 위한 설계도이다.
 인스턴스(instance) -> 클래스로 객체를 만들어 하나의 객체가 생성되어 메모리에 할당된 객체를 인스턴스라 한다.
 
-코드의 가독성(readability)을 위해 -> 들여쓰기(indentation)은 중요하다.
-System.out -> PrintStream의 instance of the predefined
+코드의 가독성(readability)을 위해 -> 들여쓰기(indentation)은 중요하다. -> class 구간 method 구간 main 구간 하듯이 들여쓰기는 중요하다.
+System.out -> PrintStream의 instance인 객체이다.
 
 Invocation object -> 호출 객체
 Object.MethodName(parameter); == System.out.println(“Ciao”);
