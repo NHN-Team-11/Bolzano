@@ -1,0 +1,61 @@
+==9월 15일 학습 내용 및 용어 정리
+
+## 용어:
+
+- expression(식) : 값을 기술하는 것 반드시 컴파일러에 의해 값이 평가될 수 있어야함. 식은 하나의 값으로 치환됌 method calls, Object Allocation, 산술식 모두 포함()
+- statement(문장) : 프로그램 안에서 하나의 동작을 기술하는것.  모든 문장은 ; 이 붙음.  (변수 선언, 조건문, 반복문)
+- (side-effect)부작용 : 부수적인 작용, 객체의 상태가 변하는 것을 side-effect라고 한다.
+
+```java
+//side-effect = expressions-with-side-effect
+
+side-effect(부수효과)란 값이 할당됨에 따라 객체의 상태가 변화하는 것을 의미하는 것이라고 생각.
+프로그램의 상태(메모리에 적재)에 대한 변경을 의미한다. 
+
+// statement 
+x = 5; //하나의 expression으로 구성된 statement
+y = x = 7; // y에 할당할 값을 산출한 expression
+	그렇다면 y = x = 7에서 side-effect 가 2번이 일어난 이유?
+ -> 결론 먼저 말하면 값의 상태가 2번 변화했기 때문이다. 
+	 x = 7, 결국 y = 7이 할당 되었기에 x의 값과 y의 값의 상태가 변화했다. 
+
+expression은 값을 산출한다
+
+- 결국 expression 안에 staetment를 같이 사용하지 마라.
+```
+
+```java
+하나의 식으로 구성된 statement(expression statement)
+
+1) Increment, Decrement statement 
+
+++number; , number++;
+--number; , number--;
+
+2) Assignment statement 
+
+number = 100;
+number += 100;
+
+3) Method invocation statement
+System.out.println("Hello world");
+
+4) Object Creation statement
+Account account = new Account();
+```
+
+```java
+assignment : 값을 변수에 대입, 오른쪽에서 연산 된 것을 왼쪽으로 대입
+	ex) 대입 연산자(assignment operator) : = , += *= ... 
+
+allocation : 메모리에 변수를 할당.
+
+declare : int x;  // 변수 선언 정의
+initialization : x = 10; // assignment value 값을 할당(대입)? 하는 것.
+
+Arithmetic operator : +, -, *, / , % 
+
+a + b // a 와 b 를 operands
+```
+
+- [ ]  compiler, interpreter의 차이  알아보기.
