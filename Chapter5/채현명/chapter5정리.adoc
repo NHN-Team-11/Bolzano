@@ -1,0 +1,134 @@
+- 9월 18일 교육
+    
+    
+    ### 이전 궁금했던 keyword:
+    
+    - 컴파일러 vs 인터프리터
+        
+        ```java
+        컴파일러 : 자바는 javac로 컴파일, java로 실행시 중간언어(class파일)로 변환
+         
+        인터프리터 : 소스코르드를 한줄씩 번역해, OS에서 인식하는 기계어로 번역하는 역할, 번역속도는 빠르지만
+        실행속도는 느리다. / class파일 내 바이트 코드를 특정 환경의 기계에서 실행될 수 있도록 한다.
+        
+        .java -> .class -> Machine Language(JVM)
+        
+        : .java -> .class = compiler가 수행
+        : .class -> Machine Language = Interpreter 수행
+        ```
+        
+    - Syntax, Semantics
+        - Syntax : 구조,구문, 문법이라고 칭하고, 문장 내 구성요소.
+            - 내가 타당한 문장을 구성했나?
+        - Semantics : 구성요소의 의미.
+            - 타당한 의미인가?
+            - Run-time에 결정 즉 compiler가 의미를 해석하진 않음
+            - Syntax(문법) 정상이지만, Semantics가 옳지 않다면, 우리가 예상하는 Semantics가 되지 않음, 그렇기에 사람이 직접 오류를 검출해야한다.
+    
+    # Unit5 학습내용
+    
+    ```java
+    
+    Summary : 
+    
+    key word : 3,5? 
+    1. if-else statment
+    2. Block of statement
+    3. Conditional expression
+    4. Comparsion between objects
+    5. switch statement
+    
+    - statements - 
+    method invocation : 메소드 호출, 원격 메소드 호출하는 java api?
+    assignment : 값을 대입
+    
+    method calls 는 중첩될수 있다. == method calls nested(중첩된)
+    : 메소드 내 메소드 사용
+    ....isTrue(){
+    	isFalse();
+    ...
+    }
+    
+    - Conditional statements: 조건의 참, 거짓을 판별해 특정 부분의 코드를 실행하는 문장.
+    - 이러한 조건문은 Composite statements(복합문)의 일종.
+    -condition은 boolean type
+    
+    Java에서는 두가지 형태의 조건문이 존재한다. (중복된 조건문 사용하는 것을 지양. early return, 쳐낼 것은 먼저 쳐내라) 
+    1. if-else : two alternatives - 참,거짓에 여부에 명령문을 수행.
+    
+    2. switch : multiple alternatives - 조건 값과 맞는 부분의 명령을 수행.
+    
+    primitive type에 적용 되는 comparsion operators : ==, !=, >,<, <=, >= 
+    
+    predicate : boolean을 반환하는 것.
+    
+    if-else문에서 else는 선택사항이다. 
+    	- else 문이 없다면, 조건이 충족된 부문이 실행, 아니라면 아무것도 수행하지 않음.
+    
+    if(condition) 
+    	then-statement;
+    
+    then-statement : (single statement) then-branch of the if statement
+    
+    -- if statements에서 code Block
+    ex) if{... }를 사용하는 이유:
+    
+    - block을 사용하지 않고 if-else를 사용한다면, 하나의 문장만 가지고 실행한다.
+    - 명령문을 논리적으로 결합해야 할 때 block을 사용한다.
+    - block을 사용하면 block내부에서만 사용한 변수는 안에서만 사용가능 외부는 블록 내부 접근 가능
+    
+    if-else 에서는 복잡한 boolean expression 사용가능: &&, ||, ! == short
+    
+    shortcut evaluation == short-circuit evaluation: 
+    즉 왼쪽 피연산자로 결과가 결정돼, 오른쪽 피연산자의 계산을 건너뛰는 최적화 기법.
+    ex)
+    int a = 0;
+         if (a != 0 && 10 / a > 1) {
+    	    System.out.println("첫번째 조건인 a != 0 == false 이므로 뒤에 조건, 이 evaluation이 진행되지 않음.");
+         }
+    
+    conjunction operator : && 모든 피연산자가 true 이어야 true
+    disjunction operator : || 하나라도 true면 true
+    selection operator : int max = (a>b) ? a : b;
+    
+    Conditional expression : condition ? expression1 :expression2
+    만약에 condition이 true 면 expression1 return otherwise expression2 return
+    (expression1, expression2는 같은 data type) 
+    
+    - selection operator는 (expression)수준에서 동작, 특정 값을 결정하고 return
+    - if-else는 (statement)수준에서 동작, 프로그램 제어 흐름 결정, 실행코드 블록 선택.
+    
+    compareTo() method : 두개의 값을 비교해 int값으로 반환해주는 함수.
+    1. 숫자의 비교: 
+    Integer	x = 1; 
+    Integer	y = 2;
+    	- x.compareTo(y); // x가 y보다 큰 경우 ==> 1 return 
+    	- x.compareTo(y); // x 와 y 가 같은 경우 ==> 0 return
+    	- x.compareTo(y); // x가 y보다 작은 경우 ==> -1 return
+    
+    2. 비교대상이 문자열일 경우: 
+    String str = "abcd";
+    Syste.out.println(str.compareTo("ab")); // 2 return
+    -> 기준값에 비교대상이 포함되어있으면 "서로의 문자열 길이 차이값을 return"
+    
+    그렇다면, str.compareTo("c")는 어떤 결과값이 나올까?
+    // -2를 return why??? : compareTo()메소드는 같은 위치의 문자만 비교, 
+    순서대로 비교시 다를 경우 바로 아스키값 기준으로 비교한다.
+    
+    그렇기에 a의 아스키 값인 97 / c의 아스키 값인 99
+    97-99 = -2를 return 하게된다.
+    
+    - constants 와 literals : 
+    - constants : 변하지 않는 변수, 메모리의 값을 변경할 수 없다. final키워드 사용.
+    
+    final double PI = 3.141592; //변하지 않는 값 PI 상수(consatant)
+    
+    - literals : 고정된 값을 나타내는 식별자, 코드 내 직접사용, 변경될 수 없다.
+    int number = 1; // 1은 정수형 literal
+    String str = "Hello"; //String형 literal
+    boolean bool = false; //boolean형 literal
+    
+    인스턴스는 literal이 될수 없다. 
+    인스턴스는 동적으로 사용되기 때문에, 값이 언제 바귈지 모르기 때문에.. 
+    
+    ```
