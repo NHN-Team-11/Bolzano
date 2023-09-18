@@ -10,7 +10,9 @@
 
 == 학습 방법
 * 진도 목표까지 학습 및 문제 해결 후 README.adoc 작성
-* 코드리뷰: 매일 13시 ~ 15시
+* 학습 발표: 13시
+* 코드 리뷰: 13시 20분 ~ 15시
+* 각 챕터당 가장 중요하다고 생각하는 문제 1개를 선별하여 함께 해결합니다.
 
 [cols=3*, options=header]
 |===
@@ -32,7 +34,7 @@
 
 | 4
 | link:./Chapter4[Primitive data types]
-| X
+| O
 
 | 5
 | Conditional statements
