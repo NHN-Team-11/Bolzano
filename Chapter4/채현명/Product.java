@@ -10,7 +10,7 @@ public class Product {
     }
 
     public void downLoad(int i) {
-        this.productNum -= i;
+        this.productNum += i;
     }
 
     public String toString() {
@@ -18,7 +18,7 @@ public class Product {
     }
 
     public void upLoad(int i) {
-        this.productNum += i;
+        this.productNum -= i;
     }
 
 }

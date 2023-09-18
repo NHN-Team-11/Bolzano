@@ -19,6 +19,10 @@ public class Exercise_4_8 {
         method(c, r);
         sb.append(c + " " + r.bal);
         System.out.println(sb);
+
+        Integer.parseInt(null)
+        Double.parseDouble(null)
+        
     }
     
 }
