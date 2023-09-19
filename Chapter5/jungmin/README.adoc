@@ -1,0 +1,66 @@
+9/18(월)
+Access modifier : 접근 제어자
+
+Visibility : 가시성
+- 클래스와 클래스 멤버인 멤버 필드와 메소드의 사용범위를 결정하는 것이다.
+- 한 클래스의 멤버필드와 메소드에 대한 다른 클랫의 접근 여부를 접근제어자로 제어하는 것이다.
+- 
+
+Selection operator - person.getperson()에서 “.”역할이 selector operation이다.
+
+JRE - JDK를 사용하여 작성된 java 코드를 JVM에서 이를 실행하는 데 필요한 필수 라이브러리와 결합한 후 결과 프로그램을 실행하는 JVM의 인스턴스를 작성한다.
+
+Argument - 메소드 호출시 전달 되는 값.
+
+Standard constructor : constructor without argument(argument가 없는 생성자)
+
+설계 방법론(design methology)
+- 클래스의 사용 예제를 고려하고 그에 따라 클라이언트 코드를 작성하는 것이 중요하며, 클래스의 공개 메소드 내용을 구체화하거나 보조 메소드를 도입하기 전에도 클라이언트를 먼저 생각하고 구현할 수 있다는 점을 강조한다.
+- Skeleton of the class : 클래싀 기본 구조, 클래스의 뼈대 또는 초기 버전을 생성하는 것을 나타낸다.
+1. Public interface : 클래스 이름은 해당 클래스가 나타내는 객체 또는 개념을 의미 있기 표현해야 한다.
+2. Representation for the objects : 객체를 나타내기 위한 클래스 디자인 예제를 의미. -> 클래스는 객체의 틀이며, 객체를 표현하고 다루기 위한 구조를 제공한다. -> 객체를 어떻게 표현하고 다루는지를 나타낸다.
+3. Realization of the methods : 클래스는 데이터와 메서드를 포함한다 이 메소드를이 어떻게 동작해야 하는지를 구체화하는 과정이다.
+4. A client : 클라이언트란 해당 클래스를 사용하는 코드 또는 프로그램의 일부를 나타낸다. 이것은 클래스의 인스턴스를 생성하고 클래스의 메소드를 호출하여 해당 클래스를 실제로 활용하는 부분을 나타냅니다.
+
+문제를 해결해야 할 때, 우리는 어떤 조건이 true인지 false인지에 따라 다른 행동을 하는 것에 관심이 있다.
+
+Composite statement : 여러 하위 문장이나 statement 결합된 하나의 문장을 나타낸다. 
+- If - else : 두 개의 대안 중 하나를 고르는 것.
+- Switch : 여러 대안 중 하나를 고르는 것.
+If - else 문의 조건은 boolean type의 임의의 식일 수 있다. -> predicate이다.
+
+If statement scope
+- 블록 내에서 declare variable은 그 블록의 하위 블록에서는 사용이 가능하지만 그 블록의 외부에서는 사용이 불가능하다.
+- 
+
+if문 사용
+- 조건이 지정된 순서가 중요하다.
+- 마지막에 else 문에는 굳이 condition을 쓸 필요가 없다. 어차피 else문의 conditon이 true이기 때문
+- 각각의 else는 바로 앞의 if문을 가르킨다. 즉 if문과 그에 대응하는 else문은 서로 쌍을 이룬다.
+
+Complex condition : 조건식의 복잡성 -> shortcut evaluation이다.
+
+1. Shortcut evaluation : 첫번째 인수가 값을 결정하기에 충분하지 않은 경우에만 두번 째 인수가 평가되는 일부 프로그래밍 언어의 일부 논리 연산의 계산이다.
+2. Eliminating the conjunction == && -> && 양 옆의 조건들이 모두 true여야 하는 것이다.
+3. Eliminating the disjunction = || -> || 양 옆의 조건들 중 하나의 조건만 만족해도 된다.
+
+Conditional Expression
+- (A > b) ? A : b; -> condition이 참일시 A의 값을 뽑아내고
+- False 이면 : 뒤의 값을 얻는다.
+
+Equality between strings(문자열 간의 동일성)
+- 문자열을 instance 하여 두 개의 string값을 비교할 때 ==을 사용하면 false가 나온다. 
+- 이유 : string 객체가 생성되면 heap영역에 생기게 되고 또 새로운 string 객체를 생성하게 되면 서로 다른 주소를 참조하게 된다. ==은 여기서 주소값을 비교하기 때문에 계속 false가 나온다.
+- 해결방법 : 문자열.equals(문자열)을 해야 true값이 출력된다.
+
+Lexicographic comparison
+- 문자열 또는 다른 순서 있는 요소들을 알파벳적인 순서 또는 문자들의 순서를 기반으로 비교하는 방법을 의미한다.
+- compareTo method를 사용한다.
+
+compareTo method
+1. 비교대상이 문자열이 포함되어 있을 경우 만약에 abcd.compareTo(ab); 라 하면 기준 값인 abcd 와 ab를 비교하게 되는데 여기서 기준값에 비교대상이 포함되어있을경우 서로의 문자열 길이의 차이값을 리턴해준다. 그래서 2가 출력될 것이다.
+2. 비교대상과 전혀 다른 문자열이 경우 - 비교가 불가능한 지점의 각 문자열의 아스키값을 기준으로 비교를 해준다. Abcd.compareTo(c) 인 경우 처음 a = 97 c = 99이다. 여기서 아스키 코드를 빼면 -2가 출력되어 다르다는 것을 알 수 있다.
+
+객체를 참조하지 않는 객체에 대한 참조 타입 변수의 값은 null이다.
+
+null과 비교하기 위해서는 equals를 사용하지 않고 ==을 사용해야 한다.
