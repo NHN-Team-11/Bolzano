@@ -22,6 +22,5 @@ public class Exercise05_5 {
             System.out.println(x);
             System.out.println(-x);
         }
-
     }
 }
