@@ -8,8 +8,5 @@ public class Test {
         System.out.println("s == w? " + (s == w));
         System.out.println("s == t? " + (s == t));
         System.out.println("s equals t?" + s.equals(t));
-        // TRUE
-        // FALSE
-        // TRUE
     }
 }
