@@ -2,31 +2,31 @@ package Chapter6.채현명;
 
 public class Ex7 {
     public static void main(String[] args) {
-        System.out.println(returnlength("ccac"));
+        System.out.println(returnlength("ccacccc", 'c'));
     }
 
-    private static int returnlength(String string) {
+    private static int returnlength(String string, char ch) {
         char bit;
         int cont = 0;
         int maxlen = 0;
+        int position = 0;
 
         for (int i = 0; i < string.length(); i++) {
-            boolean isNotHaveWord = string.charAt(i) != 'c';
-
-            if (isNotHaveWord) {
-                return -1;
-            }
 
             bit = string.charAt(i);
 
-            if (bit == 'c') {
+            if (bit == ch) {
                 cont++;
-                if (cont > maxlen)
+                if (cont > maxlen) {
                     maxlen = cont;
+                    position = i - maxlen + 1;
+                }
             } else
                 cont = 0;
-
         }
-        return string.indexOf(maxlen - 1);
+        if (maxlen == 0) {
+            return -1;
+        }
+        return position;
     }
 }
