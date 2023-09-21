@@ -1,0 +1,122 @@
+# Unit5
+
+- Java의 명령문 (실행 가능한 명령문 method invocation, assignment)
+    
+    Java에는 조건을 확인하고 참인지 거짓인지에 따라서 코드의 특정 부분을 실행할 수 있는 특정 명령문이 포함되어있다 이를 조건문이라 한다.
+    
+    2가지 형태의 조건문
+    
+    (1) if - else 문 (두가지 ), (2) switch문(여러가지)
+    
+    - if - else 문
+        
+        ```
+        if statement scope
+        - 블록 내에서 declare variable은 그 블록의 하위 블록에서는 사용이 가능하지만 그 블록의 
+        외부에서는 사용이 불가능하다.
+         
+        
+        if문 사용
+        - 조건이 지정된 순서가 중요하다.
+        - 마지막에 else 문에는 굳이 condition을 쓸 필요가 없다. 어차피 else문의 conditon이
+         true이기 때문
+        - 각각의 else는 바로 앞의 if문을 가르킨다. 즉 if문과 그에 대응하는 else문은 서로 쌍을 이룬다.
+        
+        Complex condition : 조건식의 복잡성 -> shortcut evaluation이다.
+        
+        1. Shortcut evaluation : 첫번째 인수가 값을 결정하기에 충분하지 않은 경우에만 두번 째 
+        인수가 평가되는 일부 프로그래밍 언어의 일부 논리 연산의 계산이다.
+        2. Eliminating the conjunction == && -> && 양 옆의 조건들이 모두 true여야 하는 것이다.
+        3. Eliminating the disjunction = || -> || 양 옆의 조건들 중 하나의 조건만 
+        만족해도 된다.
+        
+        Conditional Expression
+        - (A > b) ? A : b; -> condition이 참일시 A의 값을 뽑아내고
+        - False 이면 : 뒤의 값을 얻는다.
+        ```
+        
+        ```java
+        //(1) boolean 유형의 변수
+        boolean finished;
+        ...
+        if (finished)
+          ...
+        //(2) 기본유형의 변수에 적용되는 비교 연산자 중 하나.
+        int a, b, c;
+        ...
+        if (a > b + c)
+          ...
+        //(3) 조건자 호출(즉, boolean 유형의 값을 반환하는 메소드)
+        String answer;
+        ...
+        if (answer.equalsIgnoreCase("YES"))
+          ...
+        //(4) boolean 연산자를 적용하여 얻은 복잡한 boolean expression (!, &&, ||)
+        int a, b, c, d;
+        String answer;
+        ...
+        if ((a > (b+c)) || (a == d) && !answer.equalsIgnoreCase("YES"))
+          ...
+        ```
+        
+        if문에서 “else” 이 부분은 선택사향이다. 
+        
+        if(condition(조건))
+        
+        두 개의 대안 중 하나를 고르는 것.
+        
+        then(단일문)
+        
+        ```java
+        statement 는 임시 java문
+        {
+        	statement...
+        	......
+        	statement
+        }
+        
+        int a, b, bigger;
+        if ( a > b ){
+        	bigger = a;
+        	System.out.println("Smaller : " + b);
+        }
+        ```
+        
+        Block 문에서 변수의 범위
+        
+        ```java
+        public class ScopeInBlock {
+        
+          public static void main(String[] args) {
+            String a = "Hello";
+            int i = 1;
+            {
+              System.out.println(a);
+                   // OK. a is visible - prints Hello
+              //int i;
+                   // ERROR. i is visibile and cannot be redeclared
+        
+              {
+                double r = 5.5;          // OK 
+                i = i + 1;               // OK. i is still visible
+                System.out.println(r);   // OK. r is visible - prints 5.5
+              }
+        
+              //System.out.println(r); // ERROR. r is not visible 
+              System.out.println(i);   // OK. i is visibile - prints 2
+        
+              {
+                int r = 4;       // OK. previous r is not visible anymore
+                System.out.println(a);
+                                 // OK. a is still visibile - prints Hello
+              }
+            }
+        
+           i = i + 1;                  // OK. i is visible
+           System.out.println(i);      // OK. i is visible - prints 3
+        
+          }
+        }
+        ```
+        
+    - switch문 (여러 대안 중 하나를 고르는 것).

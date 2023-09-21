@@ -19,9 +19,8 @@ public class Datefunction {
             } else {
                 if (date1.getDay() < date2.getDay()) {
                     return true;
-                } else {
-                    return false;
                 }
+                return false;
             }
         }
     }

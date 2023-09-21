@@ -17,21 +17,18 @@ public class ex5_4 {
         if (max(a, b, c) == a) {
             if (b + c > a) {
                 return true;
-            } else {
-                return false;
             }
+            return false;
         } else if (max(a, b, c) == b) {
             if (a + c > b) {
                 return true;
-            } else {
-                return false;
             }
+            return false;
         } else {
             if (a + b > c) {
                 return true;
-            } else {
-                return false;
             }
+            return false;
         }
     }
 
@@ -61,11 +58,11 @@ public class ex5_4 {
     // }
     // }
 
-    public int[] sortlength() {
-        int[] arr = { a, b, c };
-        Arrays.sort(arr);
-        return arr;
-    }
+    // public int[] sortlength() {
+    // int[] arr = { a, b, c };
+    // Arrays.sort(arr);
+    // return arr;
+    // }
 
     public void trianglelength() {
         if (this.a > this.b && this.b > this.c) {
