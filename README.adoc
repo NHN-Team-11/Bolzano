@@ -44,7 +44,7 @@
 | 5
 | link:./Chapter5[Conditional statements]
 | O
-| -
+| link:./ColaboExercise/Chap5/Date.java
 
 | 6
 | link:./Chapter6[Loop statements]
