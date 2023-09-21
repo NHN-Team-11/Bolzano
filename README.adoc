@@ -14,53 +14,65 @@
 * 코드 리뷰: 13시 20분 ~ 15시
 * 각 챕터당 가장 중요하다고 생각하는 문제 1개를 선별하여 함께 해결합니다.
 
-[cols=3*, options=header]
+[cols=4*, options=header]
 |===
-|Chapter
-|Name
-|Achievement
+| Chapter
+| Name
+| Achievement
+| Exercise
 
 | 1
 | link:./Chapter1[Introduction to programming]
 | O
+| 
 
 | 2
 | link:./Chapter2[Use of objects and variables]
 | O
+| 
 
 | 3
 | link:./Chapter3[Definition of methods and classes]
 | O
+| 
 
 | 4
 | link:./Chapter4[Primitive data types]
 | O
+| 
 
 | 5
-| Conditional statements
-| X
+| link:./Chapter5[Conditional statements]
+| O
+| 
 
 | 6
-| Loop statements
+| link:./Chapter6[Loop statements]
 | X
+| 
 
 | 7
 | Arrays and matrices
 | X
+| 
 
 | 8
 | Files and input/output streams
 | X
+| 
 
 | 9
 | Program errors and exception handling
 | X
+| 
 
 | 10
 | Recursion
 | X
+| 
 
 | 11
 | Dynamic arrays and linked lists
 | X
+| 
 |===
