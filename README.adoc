@@ -24,55 +24,55 @@
 | 1
 | link:./Chapter1[Introduction to programming]
 | O
-| 
+| -
 
 | 2
 | link:./Chapter2[Use of objects and variables]
 | O
-| 
+| -
 
 | 3
 | link:./Chapter3[Definition of methods and classes]
 | O
-| 
+| -
 
 | 4
 | link:./Chapter4[Primitive data types]
 | O
-| 
+| -
 
 | 5
 | link:./Chapter5[Conditional statements]
 | O
-| 
+| -
 
 | 6
 | link:./Chapter6[Loop statements]
 | X
-| 
+| -
 
 | 7
 | Arrays and matrices
 | X
-| 
+| -
 
 | 8
 | Files and input/output streams
 | X
-| 
+| -
 
 | 9
 | Program errors and exception handling
 | X
-| 
+| -
 
 | 10
 | Recursion
 | X
-| 
+| -
 
 | 11
 | Dynamic arrays and linked lists
 | X
-| 
+| -
 |===
