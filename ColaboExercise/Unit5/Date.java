@@ -3,7 +3,7 @@ package ColaboExercise.Unit5;
 public class Date {
     private int year;
     private int day;
-    private int month;
+    private int month; // nice
 
     public Date(int day, int month, int year) {
         this.day = day;
