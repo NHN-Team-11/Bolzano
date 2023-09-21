@@ -6,5 +6,6 @@ public class Test {
         System.out.println("이중민 ㅁㄴㅇ"); // 채현명 작성
         System.out.println("채현명 진짜 이상해");// 하재준 작성
         System.out.println("아 개어려워. 하재준 개이상함.");
+        System.out.println("ㅎㅇㅌ");
     }
 }
