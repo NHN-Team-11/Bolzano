@@ -1,6 +1,6 @@
-package Bolzano.Chapter6.jungmin;
+package Chapter6.jungmin;
 
-import Bolzano.Chapter5.jungmin.practice2;
+import Chapter5.jungmin.practice2;
 
 public class EncryptedText {
     private String text;

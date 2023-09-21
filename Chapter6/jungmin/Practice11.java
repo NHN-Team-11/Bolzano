@@ -1,4 +1,4 @@
-package Bolzano.Chapter6.jungmin;
+package Chapter6.jungmin;
 
 public class Practice11 {
     public static boolean indicate(int n) {

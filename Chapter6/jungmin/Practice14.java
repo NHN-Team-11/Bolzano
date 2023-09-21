@@ -1,4 +1,4 @@
-package Bolzano.Chapter6.jungmin;
+package Chapter6.jungmin;
 
 import java.io.BufferedReader;
 import java.io.IOException;

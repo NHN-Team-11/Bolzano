@@ -1,4 +1,4 @@
-package Bolzano.Chapter6.jungmin;
+package Chapter6.jungmin;
 
 public class Practice10 {
     public static StringBuilder factorial(StringBuilder sb, int n) {
