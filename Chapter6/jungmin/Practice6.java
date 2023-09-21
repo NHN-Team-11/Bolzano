@@ -1,4 +1,4 @@
-package Bolzano.Chapter6.jungmin;
+package Chapter6.jungmin;
 
 public class Practice6 {
     public static String decode(String text, int key) {
