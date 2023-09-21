@@ -28,9 +28,8 @@ public class Datefunction {
     public static boolean isLeapYear(Date day) {
         if ((day.getYear() % 4 == 0 && !(day.getYear() % 100 == 0)) || (day.getYear() % 400 == 0)) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
 }
