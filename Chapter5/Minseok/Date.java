@@ -2,9 +2,7 @@ package Chapter5.Minseok;
 
 public class Date {
     private int year;
-
     private int day;
-
     private int month;
 
     public Date(int day, int month, int year) {
