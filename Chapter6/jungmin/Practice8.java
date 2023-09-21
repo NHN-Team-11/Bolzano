@@ -1,4 +1,4 @@
-package Bolzano.Chapter6.jungmin;
+package Chapter6.jungmin;
 
 public class Practice8 {
     public static void main(String[] args) {

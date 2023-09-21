@@ -1,4 +1,4 @@
-package Bolzano.Chapter6.jungmin;
+package Chapter6.jungmin;
 
 public class Practice7 {
     public static int longestSequence(String s, char c) {
