@@ -1,0 +1,9 @@
+
+.Exercise 5.7. Realize a Java class to represent dates, on which the following functionalities are defined:
+. creation of a date, given day, month, and year;
+. return of day, month, and year;
+. test whether two dates are equal;
+. test whether a date precedes another date;
+. test whether the year of a date is a leap year;
+. compute the date of the next day.
+. Write also a program to test all functionalities of the class representing dates.
