@@ -11,7 +11,7 @@ public class Date {
         this.year = year;
     }
 
-    public int getYear() {
+    public int getYear() { // good
         return year;
     }
 
