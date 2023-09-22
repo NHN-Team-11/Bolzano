@@ -1,0 +1,134 @@
+## Statements in Java
+
+simple statements
+
+- 메소드 호출
+- assignment 또는 세미콜론으로 끝나는 증감 연산자 등등
+- break and return
+
+composite statements
+
+- block of statements
+- 조건문 ( if-else, if, switch )
+
+## Repetition of statements
+
+ statements를 반복할 때 프로그래밍 언어에서 제공하는 2가지 방법
+
+- loop statements
+- recursive methods
+
+## Definite and indefinite loops
+
+반복의 횟수를 기준으로 2가지 타입으로 구별한다.
+
+- definite loops : 반복문의 body가 실행되기 전에 반복의 횟수를 알고 있는 loops
+- indefinite loops : 반복의 횟수를 알지 못하고, 반복문 내부의 특정 조건이 true일 때 종료되는 loops
+
+## The while loop
+
+while 문의 condition이 true일 때 body가 반복 , false이면 loop에서 나가진다.
+
+## Characteristic elements in the design of a loop
+
+- initialization : 반복문 실행 전 변수 설정
+- condition : 각각의 반복이 시작될 때마다 expression의 값이 계산되고, 그것의 true 여부가 loop의 body가 실행될지 멈출지 결정된다.
+- operation of the loop : loop의 body에 계산
+- next step : loop의 반복을 제어하기 위한 변수의 증감 ex) index++;
+
+loop문을 설계할 때 반드시 적절한 종료 조건을 체크해야 한다. 반복문 내부의 실행이 조건이 거짓이 되게 하도록 수정할 수 있어야 한다.
+
+## Common errors int writing while loops
+
+- 반복문의 error를 피하기 위해서 미리 간단하거나 작은 변수 값으로 테스트 해보는 것이 편리하다.
+
+## Loop schemes
+
+반복문을 사용할 때 기본적인 operations
+
+- counter (control variable) : 집합 내의 변수들의 수를 count
+- accumulator : 특정 기준에 따라서 집합 내의 변수들의 값을 축적시킨다.
+- characteristic values in a set : 집합 내의 변수들 중에서의 특정 값 ex) max,min
+
+## The for loop
+
+for ( initialization ; condition ; update)
+
+statement
+
+- initialization : control variable 의 초기화 , 선언
+- condition : bool 타입의 expression
+- update : control variable의 증감
+
+## Observations on the for loop
+
+- control variable이 for 문 안에서 선언되면 , scope는 for 문이다.
+- for 문의 3가지 parts (initialization , condition , update) 는 생략될 수 있다.  만약 condition이 생략되면 true로 가정된다.
+- for 루프(for loop)의 문법은 모든 세 부분이 임의의 표현식일 수 있지만 초기화(initialization)와 갱신(update) 부분은 명령문이어야 하며(특히 side-effect가 있어야 함), for 루프를 사용할 때 다음 권장 사항을 따라야 한다
+1. for 루프의 세 부분을 그들의 의도된 의미에 따라 사용하라. 즉, initialization 부분은 루프 변수(control variable)를 설정하는 데 사용하고, 갱신 부분은 루프 변수를 업데이트하는 데 사용하라.
+2. 루프 본문(body of the loop)에서 루프 변수를 수정하지 말라.
+- 쉼표(,)로 구분하여 여러 개의 루프 변수를 한 번에 초기화하거나 업데이트할 수 있지만 이러한 방식은 권장되지 않으며 가능하면 피해야 한다.
+
+## The do loop
+
+while 문에서 loop의 condition of end 는 각각의 반복이 시작할 때 체크 되었다. do loop는 while 문과 유사하지만, 종료 조건이 각각의 반복의 끝에 체크되는 점이 다르다.
+
+do
+
+statement
+
+      while (condition );
+
+## Observation on the do loop
+
+- 반복문의 body 가 최소한 한번은 수행된다. 따라서 최소한 한번은 statement를 수행하게 하고싶을 때 do loop를 사용한다.
+
+## Equivalence between while loop and do loop
+
+2개의 코드는 같지만 while문 사용 시 do문에서의 body를 중복해서 써야한다.
+
+```java
+int i;
+do {
+	i = Integer.parseInt(JOptionPane.showInputDialog("Input a positive integer"));
+} while (i <= 0);
+
+equivale a
+
+int i;
+i = Integer.parseInt(JOptionPane.showInputDialog("Input a positive integer"));
+while (i <= 0) {
+	i = Integer.parseInt(JOptionPane.showInputDialog("Input a positive integer"));
+}
+```
+
+## Flow control statements
+
+- 다음 실행문을 결정한다. if - else, if , switch, while , for , do statements도 flow control statements이지만 실행 흐름에 따라 다음 문장이 결정될 뿐, 다른 문장을 임의로 결정할 수 있는 방법이 없다. 그렇기 때문에 jump statement를 제공한다.
+- Jump statements : break , continue , return ( 현재 메소드의 동작을 종료)
+- 이러한 jump statements는 특정한 상황을 제외하고는 사용을 피해야 한다.
+
+## The continue statement
+
+- continue 는 오직 반복문 내에서 사용 가능하다.  현재 반복을 건너뛰고 다음 반복으로 넘어가는 효과
+
+```java
+// 홀수만 출력 (0 to 100)
+for (int i = 0; i <= 100; i++) {
+	if (i % 2 == 0)
+		continue;
+	System.out.println(i);
+} 
+```
+
+## The class StringTokenizer
+
+문자열을 토큰 ( 문자열 내에서 구분자가 아닌 연속된 문자 시퀀스) 으로 분리하는 데 사용된다.
+
+구분자 : (” “), (”\t”),(”\n”),(”\r”),(”\f”) , or 사용자 정의 구분자를 지정할 수도 있다.
+
+- StringTokenizer(String str)
+- StringTokenizer(String str, String delim) : 설정한 delim 구분자로 구분
+- 2개 이상의 구분자로 만들고 싶을때 문자열로 만든다.
+- boolean hasMoreToekns() : tokenizer’s string에 사용가능한 토큰이 더 있는지 검사
+- String nextToken() : 다음 토큰을 리턴
