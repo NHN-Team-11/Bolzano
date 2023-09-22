@@ -44,7 +44,12 @@ public class Messenger {
                     this.text.charAt(i) != 'e' &&
                     this.text.charAt(i) != 'i' &&
                     this.text.charAt(i) != 'o' &&
-                    this.text.charAt(i) != 'u') {
+                    this.text.charAt(i) != 'u' &&
+                    this.text.charAt(i) != 'A' &&
+                    this.text.charAt(i) != 'E' &&
+                    this.text.charAt(i) != 'I' &&
+                    this.text.charAt(i) != 'O' &&
+                    this.text.charAt(i) != 'U') {
                 sb.append(this.text.charAt(i));
             }
         }
