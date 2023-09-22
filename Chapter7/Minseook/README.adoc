@@ -1,0 +1,86 @@
+# Unit7
+
+- Array (같은 타입의 요소들의 collection의 포함되어 있으며 각 요소는 숫자로 index. 배열 유형의 변수는 배열 오브젝트의 reference를 포함한다.)
+    - java에서 배열을 사용하면 해야하는 것
+        
+         - 배열 유형의 객체 선언 → 차원을 지정해 배열 객체 구성 → 값을 할당하려면 배열 변수를 통해 배열 개체의 요소에 access.
+        
+    - Declaration of array variables
+        
+        type(int,double,String 등등)[] arrayName;
+        
+        ex ) int[] a 
+        
+        - 배열에 대한 참조 유형의 변수를 선언함으로써 변수가 참조하는 배열 객체를 아직 구성하지 않았으므로 배열을 아직 사용할 수 없음.
+    - Access to the single elements of an array
+        
+        *** 배열 객체의 각 단일 요소는 마치 별도의 변수인 것처럼 액세스할 수 있습니다.
+        
+        *index* 로 지정된 위치에 있는 *arrayName* 배열의 요소에 access해서 read or modify.
+        
+        ```java
+        int[] a;        // a is a variable of type array of integers
+        a = new int[5]; // creation of an array object with 5 elements of type int;
+                        // the array object is referenced by the array variable a
+        a[0] = 23;      // assignment to the first element of the array
+        a[4] = 92;      // assignment to the last element of the array
+        a[5] = 16;      // ERROR!  the index 5 is not in the range [0,4]
+        ```
+        
+        ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6393474a-364b-41cb-b9f1-686221993429/581790f7-08a0-4bce-a65f-103ee4d05b77/Untitled.png)
+        
+        - *Note:* It is very important to remember that, when an array contains *N* elements (*N* = 5 in the example), the indexes used to access the elements must necessarily be integers in the interval [0, *N* - 1]. Otherwise, a runtime error occurs when the program is executed. In the example, an error is signaled when the statement a[5]=16;.
+        
+    - Expreesions that denote array objects
+        - java에서 String과 비슷하게 배열 객체를 나타내는 표현식을 만들 수 있다.
+            - {expression1, expression2, ….., expressionk}
+            
+            ```java
+            int[] v = {4, 6, 3, 1}; 
+            int[] v = new int[4];
+            
+            v[0] = 4; v[1] = 6, v[2] = 3; v[3] = 1;
+            
+            ****** 주의할점
+            int[] v;
+            v = {4, 6, 3, 1}
+            //String type의 literal은 문자열 객체를 나타내기 위해 메서드 본문 어디에서나 사용 가능
+            // 하지만 배열을 나타내는 표현식은 배열이 선언될 때 배열을 초기화 하는데에만 사용이 가능
+            ```
+            
+        
+    - Matrices
+        
+        matrix는 동일한 유형의 요소를 모아 테이블 형식으로 구성한 것, 각 요소는 요소의 행괄 열을 식별하는 숫자.
+        
+        행렬은 배열을 통해 java로 표현 됨. 배열의 요소는 행렬의 다양한 행을 나타내는 배열을 참조함.
+        
+        - Declaration of a matrix
+            - int[][] m;
+        - Creation of a matrix
+            
+            ```java
+            // creation of an array object of 3 elements,
+            // each of which will contain the reference to a row of the matrix
+            m = new int[3][];
+            
+            m[0] = new int[5];  // creation of row 0 of the matrix (5 columns)
+            m[1] = new int[5];  // creation of row 1 of the matrix (5 columns)
+            m[2] = new int[5];  // creation of row 2 of the matrix (5 columns)
+            
+            m = new int[3][5];
+            ```
+            
+        - Access to the elements of a matrix
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6393474a-364b-41cb-b9f1-686221993429/72450c27-8ac4-4d06-95f8-d2b1b3a6e2f0/Untitled.png)
+            
+        - Expressions that denote matrix objects
+            
+            int[][] m = {{3,5}, {1,-2}};
+            
+            int[][] m = new int[2][2];
+            
+            m[0][0] = 3; m[0][1] = 5; m[1][0] = 1; m[1][1] = -2;
+            
+            m.length는 행렬 m의 행 수 , m[i].length는 행렬 m의 i 행에 있는 열 수
