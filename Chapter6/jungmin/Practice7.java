@@ -4,7 +4,7 @@ public class Practice7 {
     public static int longestSequence(String s, char c) {
         int count = 0;
         int max = Integer.MIN_VALUE;
-        int position = -1;
+        int position = 0;
         for (int i = 0; i < s.length(); i++) {
             if(s.charAt(i) == c) {
                 count++;

@@ -5,11 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Practice13 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
 
-        int n = Integer.parseInt(br.readLine());
+    public static StringBuilder solution (StringBuilder sb, int n) {
         int count = 0;
         for (int i = 2; i < Integer.MAX_VALUE; i++) {
             if(Practice11.indicate(i)) {
@@ -20,6 +17,19 @@ public class Practice13 {
                 break;
             }
         }
+        return sb;
+    }
+
+    public static void primeNumbers(int n) {
+        StringBuilder sb = new StringBuilder();
+        solution(sb, n);
         System.out.println(sb);
+    }
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+
+        primeNumbers(n);
     }
 }

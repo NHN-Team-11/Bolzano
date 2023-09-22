@@ -26,7 +26,6 @@ public class Talk {
     }
 
     public String getMessage() {
-        deleteVocal();
         return changeMessage(this.message);
     }
 
@@ -34,13 +33,15 @@ public class Talk {
         this.message = newMessage;
     }
 
-    public void deleteVocal() {
-        
-        this.message = this.message.replaceAll("[AEIOUaeiou]", "");
+    public String deleteVocal(String message) {
+        message = message.replaceAll("[AEIOUaeiou]", "");
+        return message;
     }
 
     public String changeMessage(String message) {
+
         String str = "";
+        message = deleteVocal(message);
         int count = 0;
         for (int i = 0; i < message.length() - 1; i++) {
             if(message.charAt(i) == ' ') {
