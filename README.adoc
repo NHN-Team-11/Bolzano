@@ -19,7 +19,7 @@
 | Chapter
 | Name
 | Achievement
-| Exercise
+| TeamExercise
 
 | 1
 | link:./Chapter1[Introduction to programming]
