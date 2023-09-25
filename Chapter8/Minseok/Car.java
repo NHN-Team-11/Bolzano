@@ -1,5 +1,8 @@
 package Chapter8.Minseok;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+
 public class Car {
 
     private String model;
@@ -44,6 +47,16 @@ public class Car {
     public String toString() {
         return "Car [model=" + model + ", year=" + year +
                 ", kilometers=" + kilometers + ", price=" + price + "]";
+    }
+
+    public static Car read(BufferedReader br) throws IOException {
+        String s = br.readLine();
+        if (s == null)
+            return null;
+        else {
+            return new Car(s, Integer.parseInt(s),
+                    Integer.parseInt(s), Integer.parseInt(s));
+        }
     }
 
 }

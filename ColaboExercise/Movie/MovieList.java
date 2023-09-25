@@ -4,30 +4,29 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
 public class MovieList {
-    
+
     private ArrayList<Movie> movieList;
     private String fileName;
-    
+
     public MovieList(String fileName) throws IOException {
         this.fileName = fileName;
-        readMovie(fileName);
+        readMovie();
     }
 
-    public void readMovie(String fileName) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+    public void readMovie() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(this.fileName)));
 
         String line = br.readLine();
 
         movieList = new ArrayList<>();
-        while((line = br.readLine()) != null) {
+        while ((line = br.readLine()) != null) {
 
             String[] csvItem = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-            
+
             String id = csvItem[0];
             String title = csvItem[1];
-            String koreanTitle  = csvItem[2];
+            String koreanTitle = csvItem[2];
             String plot = csvItem[3];
             String releaseYear = csvItem[4];
             String runningTime = csvItem[5];
@@ -41,12 +40,13 @@ public class MovieList {
             String originalAuthor = csvItem[13];
             String originalSource = csvItem[14];
             movieList.add(new Movie(id, title, koreanTitle, plot, releaseYear, runningTime,
-                                    gradeId, gradeInKoreaId, poster, releaseDateInKorea, boxOfficeWWGross,
-                                    boxOfficeUSGross, budget, originalAuthor, originalSource));
-            
+                    gradeId, gradeInKoreaId, poster, releaseDateInKorea, boxOfficeWWGross,
+                    boxOfficeUSGross, budget, originalAuthor, originalSource));
+
         }
-        
+
     }
+
     public ArrayList<Movie> getMovieList() {
         return movieList;
     }
@@ -54,7 +54,7 @@ public class MovieList {
     public Movie find(String str) {
 
         for (int i = 0; i < movieList.size(); i++) {
-            if(movieList.get(i).getTitle().equals(str)){
+            if (movieList.get(i).getTitle().equals(str)) {
                 return movieList.get(i);
             }
         }
@@ -68,10 +68,7 @@ public class MovieList {
         System.out.print("찾으실 영화 이름을 적으세요 : ");
         String str = br.readLine();
         System.out.println(movieList.find(str));
-            
-        
+
     }
 
-    
-    
 }
