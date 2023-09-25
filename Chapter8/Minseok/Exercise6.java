@@ -75,10 +75,9 @@ public class Exercise6 {
     }
 
     public static void main(String[] args) throws IOException {
-        Exercise6 e = new Exercise6("test2.txt");
-        OutputStream os = System.out;
-        e.print();
-        e.copy("test.txt");
-        e.delete();
+        Exercise6 ex = new Exercise6("test1.txt");
+        ex.print();
+        ex.copy("test.txt");
+        ex.delete();
     }
 }

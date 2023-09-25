@@ -1,5 +1,10 @@
 package Chapter7.Minseook.Exercise;
 
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.IOError;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class Apartment {
@@ -71,6 +76,16 @@ public class Apartment {
         return "아파트 주소: " + this.getAddress() + "\n아파트 크기: " + this.getSize() + "층\n거주자 목록 "
                 + Arrays.toString(personNames) + "\n" + this.getNumberResidents() + " 명이 거주중입니다.";
 
+    }
+
+    public void saveToFile(String filename) throws IOException {
+        FileWriter fw = new FileWriter(filename, true);
+        PrintWriter pw = new PrintWriter(fw);
+        pw.println(getAddress());
+        pw.println(getSize());
+        for (int i = 0; i < personNames.length; i++) {
+            pw.print(getPerson(i));
+        }
     }
 
 }

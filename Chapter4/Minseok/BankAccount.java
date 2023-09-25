@@ -4,10 +4,10 @@ public class BankAccount {
     private String name, surname;
     private double balance;
 
-    public BankAccount(String n, String s) {
+    public BankAccount(String n, String s, double balance) {
         this.name = n;
         this.surname = s;
-        balance = 0;
+        this.balance = balance;
     }
 
     public void deposit(double val) {
@@ -21,6 +21,18 @@ public class BankAccount {
     @Override
     public String toString() {
         return "{Owner =" + name + " " + surname + "Balance: Euro " + balance + "}";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public double getBalance() {
+        return balance;
     }
 
 }
