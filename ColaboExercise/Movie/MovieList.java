@@ -15,6 +15,7 @@ public class MovieList {
     }
 
     public void readMovie() throws IOException {
+
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(this.fileName)));
 
         String line = br.readLine();
@@ -39,6 +40,7 @@ public class MovieList {
             String budget = csvItem[12];
             String originalAuthor = csvItem[13];
             String originalSource = csvItem[14];
+
             movieList.add(new Movie(id, title, koreanTitle, plot, releaseYear, runningTime,
                     gradeId, gradeInKoreaId, poster, releaseDateInKorea, boxOfficeWWGross,
                     boxOfficeUSGross, budget, originalAuthor, originalSource));
