@@ -48,16 +48,16 @@
 
 | 6
 | link:./Chapter6[Loop statements]
-| X
+| O
 | -
 
 | 7
-| Arrays and matrices
-| X
+| link:./Chapter7[Arrays and matrices]
+| O
 | -
 
 | 8
-| Files and input/output streams
+| link:./Chapter8[Files and input/output streams]
 | X
 | -
 
