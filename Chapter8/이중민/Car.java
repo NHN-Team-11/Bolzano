@@ -1,4 +1,4 @@
-package Chapter8;
+package Chapter8.이중민;
 
 import java.io.BufferedReader;
 import java.io.IOException;
