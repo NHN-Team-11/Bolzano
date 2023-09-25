@@ -12,11 +12,11 @@ public class MovieList {
     
     public MovieList(String fileName) throws IOException {
         this.fileName = fileName;
-        readMovie(fileName);
+        readMovie();
     }
 
-    public void readMovie(String fileName) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+    private void readMovie() throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(this.fileName)));
 
         String line = br.readLine();
 
@@ -40,6 +40,7 @@ public class MovieList {
             String budget = csvItem[12];
             String originalAuthor = csvItem[13];
             String originalSource = csvItem[14];
+
             movieList.add(new Movie(id, title, koreanTitle, plot, releaseYear, runningTime,
                                     gradeId, gradeInKoreaId, poster, releaseDateInKorea, boxOfficeWWGross,
                                     boxOfficeUSGross, budget, originalAuthor, originalSource));
