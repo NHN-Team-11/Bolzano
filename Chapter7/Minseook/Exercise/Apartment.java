@@ -1,6 +1,7 @@
 package Chapter7.Minseook.Exercise;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOError;
 import java.io.IOException;
@@ -88,4 +89,18 @@ public class Apartment {
         }
     }
 
+    public static Apartment readFromFile(BufferedReader br) throws IOException {
+        String address = br.readLine();
+        int size = Integer.parseInt(br.readLine());
+        return new Apartment(size, address);
+    }
+
+    public static void printFromFile(String filename) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        String line;
+        while ((line = br.readLine()) != null) {
+            Apartment apartment = Apartment.readFromFile(br);
+            System.out.println(apartment);
+        }
+    }
 }
