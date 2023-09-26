@@ -25,7 +25,5 @@ public class Exercise7 {
             list[2] = String.valueOf(Double.valueOf(list[2]) * (rate / 100.0));
             
         }
-
-        
     }
 }

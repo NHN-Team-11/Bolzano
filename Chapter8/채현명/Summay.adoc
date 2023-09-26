@@ -1,0 +1,63 @@
+```java
+시그니처(signature) :함수나 메소드의 인자(parameter) 형태와 반환(return) 값의 형태를 나타내는 것. 
+
+함수나 메소드의 이름, 매개변수의 개수, 매개변수의 데이터 형식(타입), 반환 값의 데이터 형식.
+
+binary files = 사람이 쉽게 볼수 없는 데이터 foramt.
+
+Opening : os에 자바 프로그램을 조작 가능하게 하게끔 하는 동작.
+Closing : os에 더이상 프로그램을 사용하지 않고, hard-disk에 데이터를 저장.
+
+Exceptions : 프로그램이 처리할수 없는 예기치 못한 상황, ex) 존재하지 않는 파일을 실행하는 경우
+
+File 읽기 위해: 
+1. FileReader 클래스의 객체, BufferedReader 객체 생성
+2. BufferedReader의 readLine 메서드 사용, 파일에서 택스트 라인을 읽음.
+3. 텍스를 읽은 후 파일 닫기.
+
+- 우리가 읽으려는 file이 없다면, FileNotFoundException을 FileReader객체가 생성.
+
+자바는 데이터(문자)의 시퀀스를 생성/소비하는 프로듀서 및 컨슈머로서 처리하는 방법 정의.
+
+Steam(concept of stream) : 입력장치에서 생성된 데이터 시퀀스, 출력장치에서 소비되는 
+데이터 시퀀스를 나타냄.
+
+InputStream vs OutputSteam
+
+InputStream : keyboard, internet resource, file
+ /FileInputStream은 InputStream 클래스의 서브클래스.
+
+-keyboard-
+System.in : InputStream 클래스의 System.in이라는 object를 사용하는것.
+
+-file-
+File file = new File("file.txt");
+InputStream is  = new FileInputStream(file);
+
+-internet-
+URL class를 사용하려면 librery java.net을 사용해야함.
+ex) URL url = new URL("www.naver.com");
+		InputStream is = url.openStream();
+
+OutPutStream : file, video
+
+-video-
+OutputStream class의 서브 클래스인 printSteam class의 objec System.out 사용
+	OutputStream os = System.out;
+
+-file-
+FileOutputStream os = new FileOutputStream("data.txt");
+
+인터넷 리소스에 대해 간단히 OutputStream을 사용하는것은 불가능.
+
+Interleaving reading and writing : 번갈아가며 읽기 쓰기
+사용하는 상황 : 동시에 하나의 파일을 읽고 쓰는 경우, 
+네트워크 통신중 데이터 수신과 동시에 전송 하는 경우,
+메모리 버퍼를 사용해 데이터를 읽고 쓰는 경우
+
+제대로 입력과출력을 번갈아가면서 하려면, 출력 버퍼를 비워야 한다.
+그렇기에 OutputStream객체와 관련된 flush메서드를 사용한다
+
+출력버퍼를 비우는 일 = 실제 출력장치로, 파일 혹은 화면으로 내보내는 것.
+flush메서드를 사용하면 버퍼의 내용이 출력장치로 전송되어, 출력이 완료됌.
+```

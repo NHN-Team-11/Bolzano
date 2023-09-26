@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 
 public class Exercise6 {
     private String fileName;
+    
     public Exercise6(String fileName) {
         this.fileName = fileName;
     }

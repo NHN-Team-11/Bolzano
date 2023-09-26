@@ -1,17 +1,17 @@
-package Chapter7.채현명;
+package Chapter8.채현명;
 
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Apartment {
+public class Ex8 {
     private int size;
     private String address;
     private String[] residents;
     private int numberOfResidents;
 
-    public Apartment(int size, String address) {
+    public Ex8(int size, String address) {
         this.size = size;
         this.address = address;
         this.residents = new String[10];
@@ -67,18 +67,18 @@ public class Apartment {
         }
     }
 
-    public static Apartment readFromFile(BufferedReader reader) throws IOException {
+    public static Ex8 readFromFile(BufferedReader reader) throws IOException {
         int size = Integer.parseInt(reader.readLine());
         String address = reader.readLine();
         int numberOfResidents = Integer.parseInt(reader.readLine());
-        Apartment apartment = new Apartment(size, address);
+        Ex8 Ex8 = new Ex8(size, address);
 
         for (int i = 0; i < numberOfResidents; i++) {
             String residentName = reader.readLine();
-            apartment.addResident(residentName);
+            Ex8.addResident(residentName);
         }
 
-        return apartment;
+        return Ex8;
     }
 
     @Override
