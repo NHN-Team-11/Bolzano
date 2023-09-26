@@ -11,7 +11,7 @@ public class Exercise3 {
         BufferedReader br = new BufferedReader(fr);
         String str = br.readLine();
 
-        while (str != null) {
+        for (int i = 0; i < str.length(); i++) {
             if (str.charAt(0) == '/' || str.charAt(0) == ';' || str.charAt(0) == '%') {
                 System.out.println(str);
             }
