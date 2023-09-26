@@ -14,7 +14,7 @@ public class Exercise9 {
     public Exercise9(int rows, int col) {
         this.rows = rows;
         this.columns = col;
-        this.matrix = new int[rows][col];
+        matrix = new int[rows][col];
     }
 
     public void save(String filename) throws IOException {
@@ -30,8 +30,8 @@ public class Exercise9 {
         }
     }
 
-    public static Exercise9 read(String filename) {
-        BufferedReader br = new BufferedReader(new FileReader(filename)));
+    public static Exercise9 read(String filename) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(filename));
         int rows = Integer.parseInt(br.readLine());
         int columns = Integer.parseInt(br.readLine());
 
