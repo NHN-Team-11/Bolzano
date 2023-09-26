@@ -3,6 +3,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MovieList {
 
@@ -46,6 +49,18 @@ public class MovieList {
                     boxOfficeUSGross, budget, originalAuthor, originalSource));
 
         }
+        
+        Collections.sort(movieList, new Comparator<Movie>() {
+
+            @Override
+            public int compare(Movie o1, Movie o2) {
+                // if(o1.getTitle().length() == o2.getTitle().length()) {
+                //     return o1.compareTo(o2);
+                // }
+                return o1.getTitle().compareTo(o2.getTitle());
+            }
+            
+        });
 
     }
 
@@ -54,7 +69,7 @@ public class MovieList {
     }
 
     public Movie find(String str) {
-
+        
         for (int i = 0; i < movieList.size(); i++) {
             if (movieList.get(i).getTitle().equals(str)) {
                 return movieList.get(i);
@@ -65,11 +80,13 @@ public class MovieList {
 
     public static void main(String[] args) throws IOException {
         MovieList movieList = new MovieList("Movie.csv");
-
+        Finder finder = new Finder();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println(movieList.getMovieList().get(500));
+        System.out.println(movieList.getMovieList().size());
         System.out.print("찾으실 영화 이름을 적으세요 : ");
         String str = br.readLine();
-        System.out.println(movieList.find(str));
+        System.out.println(finder.findTitle(movieList, str));
 
     }
 

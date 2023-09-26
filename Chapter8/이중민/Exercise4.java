@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 
 public class Exercise4 {
     public static void calculator(String fileName, int n) throws IOException {
-        FileWriter fw = new FileWriter(fileName, true);
+        FileWriter fw = new FileWriter(fileName);
         PrintWriter pw = new PrintWriter(fw);
 
         for (int i = 1; i <= n; i++) {
