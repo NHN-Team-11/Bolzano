@@ -10,11 +10,11 @@ public class Exercise2 {
         int n = Integer.parseInt(br.readLine());
         int sum = 0;
         int count = 0;
-        while (n != 0) {
-            sum += n;
-            count++;
-            n = Integer.parseInt(br.readLine());
-        }
+        // while (n != 0) {
+        // sum += n;
+        // count++;
+        // n = Integer.parseInt(br.readLine());
+        // }
         for (int i = 0; i < n; i++) {
             sum += i;
             count++;

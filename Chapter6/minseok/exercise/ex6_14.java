@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import Chapter6.jungmin.Practice11;
-
 public class ex6_14 {
 
     public static void main(String[] args) throws NumberFormatException, IOException {

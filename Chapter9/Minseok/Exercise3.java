@@ -1,6 +1,8 @@
 package Chapter9.Minseok;
 
 public class Exercise3 {
+
+    // no errors.
     public static void main(String[] args) {
         Base b = new Base();
         Derived d = new Derived();
