@@ -15,6 +15,11 @@ public class Exercise2 {
             count++;
             n = Integer.parseInt(br.readLine());
         }
+        for (int i = 0; i < n; i++) {
+            sum += i;
+            count++;
+            i = Integer.parseInt(br.readLine());
+        }
         return sum / count;
     }
 
