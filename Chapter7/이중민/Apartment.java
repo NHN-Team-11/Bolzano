@@ -1,5 +1,13 @@
 package Chapter7.이중민;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOError;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class Apartment {
@@ -12,6 +20,8 @@ public class Apartment {
         this.address = address;
         this.apartment = new String[10];
     }
+
+    
 
     public int getSize() {
         return this.size;
@@ -70,6 +80,33 @@ public class Apartment {
         ", apartment=" + Arrays.toString(apartment) + "]";
     }
 
+    public void saveToFile(String fileName) throws IOException {
+        PrintWriter writer = new PrintWriter(new FileWriter(fileName, true));
+        
+        writer.print(getSize() + " ");
+        writer.println(getAddress());
     
+        writer.close();
+    }
     
+    public static Apartment readFromFile(BufferedReader br) throws IOException {
+        String line = null;
+        
+        while((line = br.readLine()) != null) {
+            String[] arr = line.split(" ");
+            return new Apartment(Integer.parseInt(arr[0]), arr[1]);
+        }
+        return null;
+    }
+
+    public static void printApartmentFromFile(String fileName) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+
+        String line = null;
+        while((line = br.readLine()) != null) {
+            Apartment apartment = readFromFile(br);
+            System.out.println(apartment.toString());
+        }
+        br.close();
+    }
 }

@@ -28,6 +28,6 @@ public class Exercise1 {
     public static void main(String[] args) throws IOException{
         InputStream is = System.in;
         OutputStream os = System.out;
-        saveArray(os, loadArray(is, 3));
+        saveArray(os, loadArray(is, 4));
     }
 }
