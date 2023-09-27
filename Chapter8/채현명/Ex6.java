@@ -1,9 +1,6 @@
 package Chapter8.채현명;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 
 public class Ex6 {
 
