@@ -1,4 +1,4 @@
-package Chapter8.이중민;
+package Chapter9.이중민;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -36,19 +36,27 @@ public class Matrix {
         writer.close();
     }
 
-    public static Matrix read(String fileName) throws IOException {
-        
+    public static Matrix read(String fileName) throws IOException, ExceptionWrongMatrixValues {
         BufferedReader br = new BufferedReader(new FileReader(fileName));
         int n = Integer.parseInt(br.readLine());
         int m = Integer.parseInt(br.readLine());
+
+        if (n != m) {
+            throw new ExceptionWrongMatrixValues("행렬이 성립되지 않습니다.");
+        }
         Matrix result = new Matrix(n, m);
 
         for (int i = 0; i < result.n; i++) {
             String[] arr = br.readLine().split(" ");
             for (int j = 0; j < result.m; j++) {
-                result.matrix[i][j] = Integer.parseInt(arr[j]);
+                try {
+                    result.matrix[i][j] = Integer.parseInt(arr[j]);
+                } catch (NumberFormatException e) {
+                    throw new ExceptionWrongMatrixValues("int형으로 변환 할 수 없습니다.");
+                }
             }
         }
+        br.close();
         return result;
     }
 
@@ -89,24 +97,24 @@ public class Matrix {
         return "Matrix [matrix=" + Arrays.toString(matrix) + "]";
     }
 
-    public static void main(String[] args) throws IOException {
-        // 예제로 사용할 행렬 생성
-        Matrix matrix = new Matrix(3, 3);
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                matrix.matrix[i][j] = i * 3 + j + 1;
-            }
-        }
-        Matrix matrix2 = new Matrix(3, 3);
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                matrix2.matrix[i][j] = i * 3 + j + 1;
-            }
-        }
-        Matrix result = matrix.product(matrix2);
-        // 행렬 내용을 파일에 저장
-        result.save("matrix.txt");
-        System.out.println("행렬을 파일에 저장했습니다.");
+    public static void main(String[] args) throws IOException, ExceptionWrongMatrixValues {
+        System.out.println(read("matrix.txt").toString());
+
+        // Matrix matrix = new Matrix(3, 3);
+        // for (int i = 0; i < 3; i++) {
+        //     for (int j = 0; j < 3; j++) {
+        //         matrix.matrix[i][j] = i * 3 + j + 1;
+        //     }
+        // }
+        // Matrix matrix2 = new Matrix(3, 3);
+        // for (int i = 0; i < 3; i++) {
+        //     for (int j = 0; j < 3; j++) {
+        //         matrix2.matrix[i][j] = i * 3 + j + 1;
+        //     }
+        // }
+        // Matrix result = matrix.product(matrix2);
+        // result.save("matrix.txt");
+        // System.out.println("행렬을 파일에 저장했습니다.");
     }
 
     
