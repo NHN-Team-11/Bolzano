@@ -49,17 +49,17 @@
 | 6
 | link:./Chapter6[Loop statements]
 | O
-| -
+| link:./ColaboExercise/Chap6/[Talk.java]
 
 | 7
 | link:./Chapter7[Arrays and matrices]
 | O
-| -
+| link:./ColaboExercise/Chap7/[Apartment.java]
 
 | 8
 | link:./Chapter8[Files and input/output streams]
 | X
-| -
+| link:./ColaboExercise/Chap8/[Matrix.java]
 
 | 9
 | Program errors and exception handling

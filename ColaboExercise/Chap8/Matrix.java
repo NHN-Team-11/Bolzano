@@ -1,4 +1,4 @@
-package Chapter8.이중민;
+package ColaboExercise.Chap8;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -51,7 +51,9 @@ public class Matrix {
                 result.matrix[i][j] = Integer.parseInt(arr[j]);
             }
         }
+        br.close();
         return result;
+
     }
 
     public Matrix sum(Matrix m) {
