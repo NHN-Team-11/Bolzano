@@ -49,17 +49,17 @@ public class MovieList {
                     boxOfficeUSGross, budget, originalAuthor, originalSource));
 
         }
-        
+
         Collections.sort(movieList, new Comparator<Movie>() {
 
             @Override
             public int compare(Movie o1, Movie o2) {
                 // if(o1.getTitle().length() == o2.getTitle().length()) {
-                //     return o1.compareTo(o2);
+                // return o1.compareTo(o2);
                 // }
                 return o1.getTitle().compareTo(o2.getTitle());
             }
-            
+
         });
 
     }
@@ -69,7 +69,7 @@ public class MovieList {
     }
 
     public Movie find(String str) {
-        
+
         for (int i = 0; i < movieList.size(); i++) {
             if (movieList.get(i).getTitle().equals(str)) {
                 return movieList.get(i);
@@ -87,6 +87,7 @@ public class MovieList {
         System.out.print("찾으실 영화 이름을 적으세요 : ");
         String str = br.readLine();
         System.out.println(finder.findTitle(movieList, str));
+        System.out.println(movieList.find(str));
 
     }
 
