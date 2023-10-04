@@ -2,6 +2,94 @@ package Chapter11.minseok;
 
 public class Exercise1 {
 
+    // public static int length(ListNode lis) {
+    // int count = 0;
+    // while (lis != null) {
+    // count++;
+    // lis = lis.next;
+    // }
+    // return count;
+    // }
+
+    // public static ListNode insertAfter(ListNode lis, String s, String given) {
+
+    // while (lis != null) {
+    // if (lis.info.equals(given)) {
+    // ListNode ls = new ListNode();
+    // ls.info = s;
+    // ls.next = lis.next;
+    // lis.next = ls;
+    // break;
+    // } else {
+    // lis = lis.next;
+    // }
+    // }
+    // return lis;
+    // }
+
+    // public static ListNode modify(ListNode lis, String old, String ne) {
+    // while (lis != null) {
+    // if (lis.info.equals(old)) {
+    // lis.info = ne;
+    // break;
+    // }
+    // lis = lis.next;
+
+    // }
+    // return lis;
+    // }
+
+    // public static ListNode modifyAll(ListNode lis, String old, String ne) {
+    // while (lis != null) {
+    // if (lis.info.equals(old)) {
+    // lis.info = ne;
+    // }
+    // lis = lis.next;
+    // }
+    // return lis;
+    // }
+
+    // public static ListNode insertBefore(ListNode lis, String s, String been) {
+    // if (lis == null) {
+    // return lis;
+    // }
+    // if (lis.info.equals(s)) {
+    // ListNode ls = new ListNode();
+    // ls.info = been;
+    // ls.next = lis;
+
+    // return ls;
+    // }
+    // while (lis.next != null) {
+    // if (lis.next.info.equals(s)) {
+    // ListNode ls = new ListNode();
+    // ls.info = been;
+    // ls.next = lis.next;
+    // lis.next = ls;
+    // break;
+    // }
+    // lis = lis.next;
+    // }
+    // return lis;
+    // }
+
+    // public static ListNode copy(ListNode lis) {
+    // ListNode newList = null;
+
+    // while (lis != null) {
+    // ListNode newNode = new ListNode();
+    // newNode.info = lis.info;
+    // if (newList == null) {
+    // newList = newNode;
+    // } else {
+    // newList.next = newNode;
+    // newList = newNode;
+    // }
+    // lis = lis.next;
+    // }
+    // return newList;
+    // }
+
     public static int length(ListNode list) {
         int count = 0;
         ListNode lis = list;
@@ -15,40 +103,37 @@ public class Exercise1 {
     }
 
     public static ListNode insertAfter(ListNode lis, String s, String given) {
-        ListNode list = lis;
 
-        while (list != null) {
-            if (list.info.equals(s)) {
+        while (lis != null) {
+            if (lis.info.equals(s)) {
                 ListNode ls = new ListNode();
-                ls.info = s;
-                ls.next = list.next;
-                list.next = ls;
+                ls.info = given;
+                ls.next = lis.next;
+                lis.next = ls;
                 break;
             }
-            list = list.next;
+            lis = lis.next;
         }
         return lis;
     }
 
     public static ListNode modify(ListNode lis, String old, String ne) {
-        ListNode list = lis;
-        while (list != null) {
-            if (list.info.equals(old)) {
-                list.info = ne;
+        while (lis != null) {
+            if (lis.info.equals(old)) {
+                lis.info = ne;
                 break;
             }
-            list = list.next;
+            lis = lis.next;
         }
         return lis;
     }
 
     public static ListNode modifyAll(ListNode lis, String old, String ne) {
-        ListNode list = lis;
-        while (list != null) {
-            if (list.info.equals(old)) {
-                list.info = ne;
+        while (lis != null) {
+            if (lis.info.equals(old)) {
+                lis.info = ne;
             }
-            list = list.next;
+            lis = lis.next;
         }
         return lis;
     }
@@ -65,16 +150,15 @@ public class Exercise1 {
             return ls;
         }
 
-        ListNode list = lis;
-        while (list.next != null) {
-            if (list.next.info.equals(given)) {
+        while (lis.next != null) {
+            if (lis.next.info.equals(given)) {
                 ListNode ls = new ListNode();
                 ls.info = s;
-                ls.next = list.next;
-                list.next = ls;
+                ls.next = lis.next;
+                lis.next = ls;
                 break;
             }
-            list = list.next;
+            lis = lis.next;
         }
         return lis;
     }
@@ -82,10 +166,9 @@ public class Exercise1 {
     public static ListNode copy(ListNode lis) {
         ListNode newList = null;
         ListNode newTail = null;
-        ListNode list = lis;
-        while (list != null) {
+        while (lis != null) {
             ListNode newNode = new ListNode();
-            newNode.info = list.info;
+            newNode.info = lis.info;
             if (newList == null) {
                 newList = newNode;
                 newTail = newNode;
@@ -93,19 +176,18 @@ public class Exercise1 {
                 newTail.next = newNode;
                 newTail = newNode;
             }
-            list = list.next;
+            lis = lis.next;
         }
         return newList;
     }
 
     public static ListNode invert(ListNode lis) {
         ListNode prev = null;
-        ListNode list = lis;
-        while (list != null) {
-            ListNode nextNode = list.next;
-            list.next = prev;
-            prev = list;
-            list = nextNode;
+        while (lis != null) {
+            ListNode nextNode = lis.next;
+            lis.next = prev;
+            prev = lis;
+            lis = nextNode;
         }
         return prev;
     }
@@ -115,14 +197,13 @@ public class Exercise1 {
             return lis;
         }
 
-        ListNode list = lis;
-        while (list != null) {
-            ListNode nextNode = list.next;
-            while (nextNode != null && nextNode.info.equals(list.info)) {
+        while (lis != null) {
+            ListNode nextNode = lis.next;
+            while (nextNode != null && nextNode.info.equals(lis.info)) {
                 nextNode = nextNode.next;
             }
-            list.next = nextNode;
-            list = nextNode;
+            lis.next = nextNode;
+            lis = nextNode;
         }
         return lis;
     }
