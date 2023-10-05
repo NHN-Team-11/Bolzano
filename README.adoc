@@ -62,7 +62,7 @@
 | link:./ColaboExercise/Chap8/[Matrix.java]
 
 | 9
-| Program errors and exception handling
+| link:./Chapter9[Program errors and exception handling]
 | X
 | -
 

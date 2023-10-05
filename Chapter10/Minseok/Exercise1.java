@@ -90,10 +90,8 @@ public class Exercise1 {
         if (line == null) {
             return 0;
         }
-        int linecount = countStr(line);
-        int filecount = sequence(br);
 
-        return linecount + filecount;
+        return countStr(line) + sequence(br);
     }
 
     public static int countStr(String str) {
@@ -105,4 +103,21 @@ public class Exercise1 {
         }
         return count;
     }
+
+    // Exercise6
+
+    public static int findRecursive(String s, char c) {
+        if (s.isEmpty()) {
+            throw new IllegalArgumentException("빈 문자열 입니다");
+        }
+        char ch = s.charAt(0);
+
+        if (ch == c) {
+            return 1 + findRecursive(s.substring(1), c);
+        } else {
+            return findRecursive(s.substring(1), c);
+        }
+
+    }
+
 }
