@@ -1,11 +1,9 @@
+package ColaboExercise.Movie;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class MovieList {
 
@@ -44,11 +42,13 @@ public class MovieList {
             String originalAuthor = csvItem[13];
             String originalSource = csvItem[14];
 
-            movieList.add(new Movie(id, title, koreanTitle, plot, releaseYear, runningTime,
-                    gradeId, gradeInKoreaId, poster, releaseDateInKorea, boxOfficeWWGross,
-                    boxOfficeUSGross, budget, originalAuthor, originalSource));
+            Movie movie = new Movie.MovieBuilder(id, title, koreanTitle, plot, releaseYear, runningTime, gradeId, gradeInKoreaId, poster, releaseDateInKorea, boxOfficeWWGross, boxOfficeUSGross, budget, originalAuthor, originalSource)
+            // movieList.add(new MovieBuilder(id, title, koreanTitle, plot, releaseYear, runningTime,
+            //         gradeId, gradeInKoreaId, poster, releaseDateInKorea, boxOfficeWWGross,
+            //         boxOfficeUSGross, budget, originalAuthor, originalSource));
 
         }
+<<<<<<< Updated upstream
 
         Collections.sort(movieList, new Comparator<Movie>() {
 
@@ -61,6 +61,9 @@ public class MovieList {
             }
 
         });
+=======
+        br.close();
+>>>>>>> Stashed changes
 
     }
 
@@ -78,6 +81,7 @@ public class MovieList {
         return null;
     }
 
+<<<<<<< Updated upstream
     public static void main(String[] args) throws IOException {
         MovieList movieList = new MovieList("Movie.csv");
         Finder finder = new Finder();
@@ -90,5 +94,8 @@ public class MovieList {
         System.out.println(movieList.find(str));
 
     }
+=======
+    
+>>>>>>> Stashed changes
 
 }

@@ -68,22 +68,18 @@ public class Exercise2 {
 
     public static ListNode insertBefore(ListNode lis, String s, String given) {
 
-        ListNode newNode = new ListNode();
-        newNode.info = given;
-        boolean check = false;
-
         if(lis == null) {
             return lis;
         }
-
-        if((lis.info.equals(s)) && !check) {
+        if(lis.info.equals(s)) {
+            ListNode newNode = new ListNode();
+            newNode.info = given;
             newNode.next = lis;
-            check = true;
-            insertBefore(newNode.next, s, given);
+
+            return newNode;
+            
         }
-        else {
-            insertBefore(lis.next, s, given);
-        }
+        lis.next = insertBefore(lis.next, s, given);
         return lis;
     }
 
@@ -151,13 +147,23 @@ public class Exercise2 {
             return false;
         }
     }
+
+    public static ListNode copy(ListNode lis) {
+        if(lis == null) {
+            return lis;
+        }
+        ListNode newNode = new ListNode();
+        newNode.info = lis.info;
+        newNode.next = copy(lis.next);
+        return newNode;
+    }
     public static void main(String[] args) {
         ListNode lis = create3NodesABC();
         insertAfter(lis, "B", "A");
-        // insertBefore(lis, "A", "E");
-        modifyAll(lis, "A", "G");
+        insertBefore(lis, "B", "E");
+        // modifyAll(lis, "A", "G");
         deleteDoubles(lis);
-        System.out.println(length(lis, 0));
         print(lis, System.out);
+        print(copy(lis), System.out);
     }
 }
