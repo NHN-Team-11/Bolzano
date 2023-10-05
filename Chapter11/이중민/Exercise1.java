@@ -161,7 +161,6 @@ public class Exercise1<T> implements List<T> {
         ListNode next = new ListNode();
         ListNode newList = next;
         
-        
         while(lis != null) {
             ListNode newNode = new ListNode();
             newNode.num = lis.num;
