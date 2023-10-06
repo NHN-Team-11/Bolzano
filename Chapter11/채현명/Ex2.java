@@ -67,11 +67,41 @@ public class Ex2 { // insert, modify 우선적으로 구현해보기.
         return list;
     }
 
+    public static ListNode copy(ListNode list) {
+
+        if (list == null) {
+            return null;
+        }
+
+        ListNode newNode = new ListNode(list.info);
+        newNode.next = copy(list.next);
+
+        return newNode;
+
+    }
+
+    public static ListNode invert(ListNode list) {
+
+        if (list == null || list.next == null) {
+            return list;
+        }
+
+        ListNode nextNode = list.next;
+        list.next = null;
+        ListNode revList = invert(nextNode);
+
+        nextNode.next = list;
+        return revList;
+    }
+
     public static void main(String[] args) {
         ListNode orign = new ListNode("a");
         orign.next = new ListNode("b");
         orign.next.next = new ListNode("c");
-        orign.next.next.next = new ListNode("a");
+
+        System.out.print("Orign list : ");
+        print(orign);
+        System.out.println();
 
         // System.out.println("lenght " + length(orign));
 
@@ -87,9 +117,17 @@ public class Ex2 { // insert, modify 우선적으로 구현해보기.
         // modify(orign, "a", "new one");
         // print(orign);
 
-        System.out.print("modifyAll : ");
-        modifyAll(orign, "a", "new one");
-        print(orign);
+        // System.out.print("modifyAll : ");
+        // modifyAll(orign, "a", "new one");
+        // print(orign);
+
+        // System.out.print("Copy list : ");
+        // copy(orign);
+        // print(orign);
+
+        System.out.print("Invert list : ");
+        ListNode invertList = invert(orign);
+        print(invertList);
 
     }
 }
