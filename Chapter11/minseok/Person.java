@@ -1,17 +1,23 @@
 package Chapter11.minseok;
 
 public class Person {
-    private String name;
+    public Person next;
+    public String name;
     private String surname;
     private int age;
     private String city;
 
-    // public Person(String name, String surname, int age, String city) {
-    // this.name = name;
-    // this.surname = surname;
-    // this.age = age;
-    // this.city = city;
-    // }
+    public Person() {
+
+    }
+
+    public Person(String name, String surname, int age, String city) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.city = city;
+        this.next = null;
+    }
 
     public Person(String name) {
         this.name = name;
@@ -47,6 +53,10 @@ public class Person {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public void setNext(Person next) {
+        this.next = next;
     }
 
 }

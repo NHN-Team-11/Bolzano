@@ -1,85 +1,95 @@
 package Chapter11.minseok;
 
+import java.io.PrintStream;
+
 public class ListOfPersons {
 
-    private Person[] a;
+    private Person a;
 
-    private int n;
-
-    public ListOfPersons() {
-        a = new Person[10];
-        n = 0;
-    }
-
-    // Add a person to the List of Persons in the last position
     public void add(Person p) {
-        if (n == a.length) {
-            Person[] b = new Person[a.length * 2];
-            for (int i = 0; i < a.length; i++)
-                b[i] = a[i];
-            a = b;
+        if (a == null) {
+            a = new Person(p.getName(), p.getSurname(), p.getAge(), p.getCity());
         }
-        // Now we are sure that n < a.length
-        a[n] = p;
-        n++;
+        Person current = a;
+        while (current.next != null) {
+            current = current.next;
+        }
+
+        current.setNext(new Person(p.getName(), p.getSurname(), p.getAge(), p.getCity()));
     }
 
-    // Remove the person in position k
-    public void remove(int k) {
-        if ((k >= 0) && (k < n)) {
-            // We have to move all elements that follow k
-            for (int i = k; i < n; i++)
-                a[i] = a[i + 1];
-            n--;
+    public Person delete(String name) {
+        Person current = a;
+
+        Person p = new Person();
+        p.next = current;
+        current = p;
+
+        boolean found = false;
+
+        while ((p.next != null) && !found) {
+            if (p.next.getName().equals(name)) {
+                p.next = p.next.next;
+                found = true;
+            } else {
+                p = p.next;
+            }
         }
-        // We reduce the dimension of the array if it is sufficiently empty
-        if ((a.length > 10) && (n < a.length / 4)) {
-            Person[] b = new Person[a.length / 2];
-            for (int i = 0; i < n; i++)
-                b[i] = a[i];
-            a = b;
+        return a.next;
+    }
+
+    // 이름만 바꿀경우 수정
+    public Person modifyName(Person p, String old, String ne) {
+        while (p != null) {
+            if (p.getName().equals(old)) {
+                p.name = ne;
+            }
+            p = p.next;
+        }
+        return p;
+    }
+
+    public void printPerson(PrintStream ps) {
+        Person current = a;
+        while (current != null) {
+            ps.printf("이름 : " + current.getName() + " 성 : " + current.getSurname() + " 나이 : " + current.getAge()
+                    + " 거주 도시 : " + current.getCity());
+            ps.println();
         }
     }
 
-    public void printPerson() {
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a);
-        }
-    }
-
-    public int countCity(String s) {
+    public int countCity(String city) {
+        Person current = a;
         int count = 0;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i].getCity().equals(s)) {
+        while (current != null) {
+            if (current.getCity().equals(city)) {
                 count++;
             }
         }
         return count;
     }
 
-    public double averAge() {
+    public int size() {
+        Person current = a;
+        int count = 0;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
+
+    public double ageAverage() {
         int sum = 0;
-        for (int i = 0; i < a.length; i++) {
-            sum += a[i].getAge();
+        Person current = a;
+        while (current != null) {
+            sum += current.getAge();
         }
-
-        return (double) sum / a.length;
+        return sum / size();
     }
 
-    public Person[] getA() {
+    public Person getA() {
         return a;
-    }
-
-    public int getN() {
-        return n;
-    }
-
-    public String getPersonName(int k) {
-        if (k >= 0 && k < n) {
-            return a[k].getName(); // 이름을 반환
-        } else {
-            return null; // 잘못된 인덱스면 null 반환
-        }
     }
 
 }
