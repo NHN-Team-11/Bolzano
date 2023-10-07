@@ -1,7 +1,5 @@
 package Chapter11.이중민;
 
-import java.io.PrintStream;
-
 public class StringJM {
 
     private MyString head;
@@ -155,10 +153,11 @@ public class StringJM {
     public int parseInt(MyString str) {
         MyString current = str;
         int result = 0;
+        
 
         while(current != null) {
             if('0' <= current.getC() && current.getC() <= '9'){
-                result = result * 10 + (current.getC() - '0');
+                result = (result * 10) + (current.getC() - '0');
             }
             else {
                 throw new NumberFormatException("숫자가 아닌 것이 있습니다.");
