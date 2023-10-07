@@ -1,6 +1,6 @@
 package Chapter11.이중민;
 
-public class Person {
+public class Person{
     private Person nextNode;
     private String name;
     private String surName;

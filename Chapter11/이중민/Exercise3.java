@@ -114,7 +114,7 @@ public class Exercise3 {
         }
         System.out.println();
     }
-    public static void main(String[] args) {
+    public static void main(StringJM[] args) {
         ListNode lis = create3NodesABC();
         ListNode lis2 = create3NodesABC2();
         // print(addElement(lis, 4), System.out);

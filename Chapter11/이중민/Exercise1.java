@@ -3,9 +3,9 @@ package Chapter11.이중민;
 import java.io.PrintStream;
 
 
-interface List<E> {
+interface ListS<E> {
     void add(E e);
-    boolean remove(E e);
+    void remove(E e);
     boolean contains(E e);
 }
 
@@ -27,7 +27,7 @@ class Node<T> {
     }
 }
 
-public class Exercise1<T> implements List<T> {
+public class Exercise1<T> implements ListS<T> {
     Node<T> node;
 
     public void add(T e) {
@@ -273,7 +273,7 @@ public class Exercise1<T> implements List<T> {
     }
 
     @Override
-    public boolean remove(T e) {
+    public void remove(T e) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
@@ -283,4 +283,9 @@ public class Exercise1<T> implements List<T> {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'contains'");
     }
+
+    
+
+
+    
 }
