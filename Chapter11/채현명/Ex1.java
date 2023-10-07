@@ -89,14 +89,12 @@ public class Ex1 {
 
     public static ListNode invert(ListNode lis) {
         ListNode prev = null;
-        ListNode current = lis;
-        ListNode nextNode;
 
-        while (current != null) {
-            nextNode = current.next;
+        while (lis != null) {
+            ListNode current = lis;
+            lis = lis.next;
             current.next = prev;
             prev = current;
-            current = nextNode;
         }
         return prev;
     }
@@ -121,6 +119,8 @@ public class Ex1 {
         return lis.next;
     }
 
+   
+
     public static boolean searchSequence(ListNode lis1, ListNode lis2) {
         ListNode first = lis1;
         ListNode second = lis2;
@@ -144,8 +144,9 @@ public class Ex1 {
         // modify(head, "C", "안녕");
         // modifyAll(head, "A", "Hello");
 
-        // ListNode copyList = copy(orign);
-        // ListNode invertList = invert(copy(orign));
+        ListNode copyList = copy(orign);
+        ListNode invertList = invert(copy(orign));
+        printList(invertList);
         // ListNode deleteList = deleteDoubles(copy(orign));
         // ListNode list2 = new ListNode("B");
         // list2.next = new ListNode("C");

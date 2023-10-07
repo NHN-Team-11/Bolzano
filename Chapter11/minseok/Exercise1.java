@@ -1,6 +1,43 @@
 package Chapter11.minseok;
 
-public class Exercise1 {
+import java.io.PrintStream;
+
+interface List<E> {
+    void add(E e);
+
+    boolean remove(E e);
+
+    boolean contains(E e);
+}
+
+class Node<T> {
+    T data;
+    Node<T> nextNode;
+
+    public Node(T data) {
+        this.data = data;
+        this.nextNode = null;
+    }
+
+    public Node<T> nextNode() {
+        return this.nextNode;
+    }
+
+    public void setNextNode(Node<T> nextNode) {
+        this.nextNode = nextNode;
+    }
+}
+
+public class Exercise1<T> implements List<T> {
+    Node<T> node;
+
+    public void add(T e) {
+        if (node.nextNode() == null) {
+            this.node = new Node<T>(e);
+        } else {
+            this.node.setNextNode(new Node<T>(e));
+        }
+    }
 
     // public static int length(ListNode lis) {
     // int count = 0;
@@ -164,21 +201,20 @@ public class Exercise1 {
     }
 
     public static ListNode copy(ListNode lis) {
-        ListNode newList = null;
-        ListNode newTail = null;
+
+        ListNode next = new ListNode();
+        ListNode newList = next;
+
         while (lis != null) {
             ListNode newNode = new ListNode();
-            newNode.info = lis.info;
-            if (newList == null) {
-                newList = newNode;
-                newTail = newNode;
-            } else {
-                newTail.next = newNode;
-                newTail = newNode;
-            }
+            newNode.val = lis.val;
+            newList.next = newNode;
+
+            newList = newNode;
             lis = lis.next;
         }
-        return newList;
+
+        return next.next;
     }
 
     public static ListNode invert(ListNode lis) {
@@ -226,5 +262,17 @@ public class Exercise1 {
             list2 = lis2;
         }
         return false;
+    }
+
+    @Override
+    public boolean remove(T e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    }
+
+    @Override
+    public boolean contains(T e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'contains'");
     }
 }

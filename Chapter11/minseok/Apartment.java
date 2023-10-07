@@ -1,14 +1,16 @@
 package Chapter11.minseok;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOError;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class Apartment {
-
     private int size;
     private String address;
     private ListOfPersons residents;
@@ -27,36 +29,69 @@ public class Apartment {
         return this.address;
     }
 
-    public int getNumberOfPerson() {
-        int count = 0;
-        for (int i = 0; i < residents.getN(); i++) {
-            if (residents.getA()[i] != null) {
-                count++;
-            }
-        }
-        return count;
+    public int getNumberOfPerson(ListOfPersons listOfPersons) {
+        return listOfPersons.size();
     }
 
-    public void setApartment(String name) {
-        if (getNumberOfPerson() == 10) {
-            return;
-        }
-        residents.add(new Person(name));
+    public void setApartment(Person p) {
+        residents.add(p);
     }
 
     public String getOwnerName(int apartmentNumber) {
-        return residents.getPersonName(apartmentNumber);
+        int count = 0;
+        Person p = residents.getA();
+        String name = "";
+        if (getNumberOfPerson(residents) <= apartmentNumber) {
+            return null;
+        } else {
+            while (residents != null) {
+                if (count == apartmentNumber) {
+                    name = p.getName();
+                    break;
+                }
+                count++;
+            }
+        }
+        return name;
+
     }
 
-    public void outOwner(int apartmentNumber) {
-        residents.remove(apartmentNumber);
+    public void outOwner(int apartmentNumber, ListOfPersons listOfPersons) {
+        int count = 0;
+        Person p = residents.getA();
+
+        while (residents != null) {
+            if (count == apartmentNumber) {
+                listOfPersons.delete(p.getName());
+                break;
+            }
+            count++;
+        }
     }
 
-    @Override
-    public String toString() {
-        return "Apartment [size=" + size + " square meter" + ", address=" + address +
-                ", residents=" + residents.toString() + "]";
+    public int countPersons() {
+        return residents.size();
     }
+
+    public boolean checkFamily(String surname) {
+        int count = 0;
+        Person p = residents.getA();
+        while (residents != null) {
+            if (p.getSurname().equals(surname)) {
+                count++;
+            }
+        }
+        if (count == residents.size()) {
+            return true;
+        }
+        return false;
+    }
+
+    // @Override
+    // public String toString() {
+    // return "Apartment [size=" + size + " square meter" + ", address=" + address +
+    // ", apartment=" + Arrays.toString(apartment) + "]";
+    // }
 
     public void saveToFile(String fileName) throws IOException {
         PrintWriter writer = new PrintWriter(new FileWriter(fileName, true));
@@ -86,24 +121,5 @@ public class Apartment {
             System.out.println(apartment.toString());
         }
         br.close();
-    }
-
-    public int countPersons() {
-        return residents.getN();
-    }
-
-    public boolean checkFamliy(Person p) {
-        if (residents.getN() <= 1) {
-            return true;
-        }
-        String surname = p.getSurname();
-
-        for (int i = 1; i <= residents.getN(); i++) {
-            if (residents.getPersonName(i).equals(surname)) {
-                return true;
-            }
-        }
-        return false;
-
     }
 }
