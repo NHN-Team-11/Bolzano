@@ -1,6 +1,3 @@
-
-import java.io.PrintStream;
-
 public class Practice3 {
     public static ListNode create3NodesABC() {
         ListNode a = new ListNode();
@@ -90,30 +87,12 @@ public class Practice3 {
     public static ListNode intersection(ListNode list1, ListNode list2) {
         ListNode resultNodes = null;
         while (list1 != null) {
-            if (search(list2, list1.num)) {
-                resultNodes = addElement(resultNodes, list1.num);
+            if (search(list2, Integer.parseInt(list1.info))) {
+                resultNodes = addElement(resultNodes, Integer.parseInt(list1.info));
             }
             list1 = list1.next;
         }
         return resultNodes;
     }
 
-    public static void main(String[] args) {
-        ListNode lis = create3NodesABC();
-        addElement(lis, 4);
-        while (lis != null) {
-            System.out.println(lis.info);
-            lis = lis.next;
-        }
-        // ListNode lis2 = create3NodesABC2();
-        // print(addElement(lis, 4), System.out);
-        // ListNode merge = twoList(lis, lis2);
-        // ListNode merge2 = bothList(lis, lis2);
-        // print(bothList(lis, lis2), System.out);
-        // print(twoList(bothList(lis, lis2)), System.out);
-        // lis.num = 9;
-        // print(merge, System.out);
-        // print(merge2, System.out);
-        // print(intersection(lis, lis2), System.out);
-    }
 }
