@@ -59,4 +59,7 @@ public class CD {
         this.next = next;
     }
 
+    public void add(CD current) {
+    }
+
 }

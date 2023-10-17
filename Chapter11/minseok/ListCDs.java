@@ -58,40 +58,40 @@ public class ListCDs {
     }
 
     public CD getAuthors(String author) {
-        CD newCD = null;
+        CD result = null;
         CD current = head;
-        CD newList = null;
 
         while (current != null) {
             if (current.getAuthors().equals(author)) {
-                if (newList == null) {
-                    newCD = new CD(current.getAuthors(), current.getTitle(), current.getYear(), current.getPrice());
-                    newList = newCD;
+                if (result == null) {
+                    result = new CD(current.getAuthors(), current.getTitle(), current.getYear(), current.getPrice());
+                    result.next = null;
                 } else {
-                    newCD.next = new CD(current.getAuthors(), current.getTitle(), current.getYear(),
-                            current.getPrice());
-                    newCD = newCD.next;
+                    CD newCD = new CD(current.getAuthors(), current.getTitle(), current.getYear(), current.getPrice());
+                    newCD.next = result;
+                    result = newCD;
                 }
             }
             current = current.next;
         }
 
-        return newList;
+        return result;
     }
 
     public static void main(String[] args) {
-        CD one = new CD("이중민", "오예스", 2023, 10000);
+        CD one = new CD("김민석", "오예스", 2023, 10000);
         CD four = new CD("이중민", "오예스", 2023, 10000);
-        CD two = new CD("김민석", "오예스", 2023, 10000);
+        CD two = new CD("이중민", "오예스", 2023, 10000);
         CD three = new CD("김민석", "오예스", 2023, 10000);
+        CD five = new CD("김민석", "오예스", 2023, 10000);
 
         ListCDs listCDs = new ListCDs();
-
         listCDs.add(one);
         listCDs.add(two);
         listCDs.add(three);
         listCDs.add(four);
-        CD result = listCDs.getAuthors("이중민");
+        listCDs.add(five);
+        CD result = listCDs.getAuthors("김민석");
 
         listCDs.printPerson(result, System.out);
 
