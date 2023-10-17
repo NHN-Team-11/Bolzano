@@ -1,8 +1,8 @@
 package Chapter11.채현명;
 
 public class ListNode {
-    public String info;
-    public ListNode next;
+    String info;
+    ListNode next;
 
     public ListNode() {
     }
@@ -11,5 +11,4 @@ public class ListNode {
         this.info = info;
         this.next = null;
     }
-
 }

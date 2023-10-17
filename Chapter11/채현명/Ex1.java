@@ -119,8 +119,6 @@ public class Ex1 {
         return lis.next;
     }
 
-   
-
     public static boolean searchSequence(ListNode lis1, ListNode lis2) {
         ListNode first = lis1;
         ListNode second = lis2;

@@ -1,7 +1,5 @@
 package Chapter11.채현명;
 
-import java.io.PrintStream;
-
 public class Ex2 { // insert, modify 우선적으로 구현해보기.
 
     public static int length(ListNode list) {
