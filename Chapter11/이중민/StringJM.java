@@ -177,7 +177,7 @@ public class StringJM {
         MyString myString = new MyString("apple");
         StringJM stringJm = new StringJM();
         stringJm.setHead(myString);
-
+        
         System.out.println(stringJm.concat("abc123"));
         System.out.println(stringJm.length());
         System.out.println(stringJm.equals("appleabc123"));
