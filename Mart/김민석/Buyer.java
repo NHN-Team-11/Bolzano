@@ -20,7 +20,7 @@ public class Buyer extends Thread {
                 item = ThreadLocalRandom.current().nextInt(store.Item.size());
                 System.out.println(Thread.currentThread().getName() + "손님이 " + store.Item.get(item) + " 구매 하셨습니다.");
                 store.buy();
-
+                
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
