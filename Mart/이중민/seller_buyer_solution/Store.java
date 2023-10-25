@@ -1,4 +1,4 @@
-package Bolzano.Mart.이중민.seller_buyer_solution;
+package Mart.이중민.seller_buyer_solution;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Store {
     Semaphore enterPeople = new Semaphore(5);
     private List<String> stand;
-    String[] itemName;
+    private String[] itemName;
+    private final int max = 10;
     public Store() {
         stand = new ArrayList<>();
         itemName = new String[] {"사과", "포도", "배", "복숭아", "참외", "용과", "귤", "딸기", "파인애플", "레몬"};
@@ -47,16 +48,16 @@ public class Store {
     public synchronized void sell() {
 //        synchronized (this) {
             try {
-                if(stand.size() > 10) {
+                if(stand.size() >= max) {
                     wait();
 //                    Thread.currentThread().interrupt();
                 }
             } catch (InterruptedException e) {}
             int addIndex = ThreadLocalRandom.current().nextInt(itemName.length - 1);
             stand.add(itemName[addIndex]);
-            System.out.println("======진열대======");
+            System.out.println("===========진열대===========");
             System.out.println(stand);
-            System.out.println("================");
+            System.out.println("============================");
 
             notifyAll();
 //        }

@@ -1,4 +1,4 @@
-package Bolzano.Mart.이중민.seller_buyer_solution;
+package Mart.이중민.seller_buyer_solution;
 
 public class main {
     public static void main(String[] args) {
