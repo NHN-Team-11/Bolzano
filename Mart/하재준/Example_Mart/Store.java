@@ -34,7 +34,7 @@ public class Store {
     }
 
     public synchronized void sell() throws InterruptedException {
-        while (itemList.size() >= 10) {
+        while (this.itemList.size() > 10) {
             wait();
         }
         notify();
