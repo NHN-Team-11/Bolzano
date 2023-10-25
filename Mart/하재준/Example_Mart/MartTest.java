@@ -17,7 +17,7 @@ public class MartTest {
 
         Seller seller = new Seller(store);
         seller.setDaemon(true);
-        seller.start();
+
         buyer1.start();
         buyer2.start();
         buyer3.start();
@@ -28,8 +28,7 @@ public class MartTest {
         buyer8.start();
         buyer9.start();
         buyer10.start();
-
-        System.out.println("모든 작업 종료");
+        seller.start();
 
     }
 

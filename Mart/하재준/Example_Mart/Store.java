@@ -30,10 +30,11 @@ public class Store {
     public synchronized void buy() {
         String item = itemList.remove((int) (Math.random() * itemList.size()));
         System.out.println(item + "을 구매하셨습니다.");
+        notify();
     }
 
     public synchronized void sell() throws InterruptedException {
-        while (this.itemList.size() > 10) {
+        while (itemList.size() >= 10) {
             wait();
         }
         notify();
