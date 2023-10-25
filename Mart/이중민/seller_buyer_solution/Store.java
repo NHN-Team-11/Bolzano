@@ -8,8 +8,10 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Store {
     Semaphore enterPeople = new Semaphore(5);
     private List<String> stand;
+    String[] itemName;
     public Store() {
-        this.stand = new ArrayList<>(List.of("사과", "포도", "배", "복숭아", "참외", "용과", "귤", "딸기", "파인애플", "레몬")) ;
+        stand = new ArrayList<>();
+        itemName = new String[] {"사과", "포도", "배", "복숭아", "참외", "용과", "귤", "딸기", "파인애플", "레몬"};
     }
 
     public void enter() {
@@ -26,15 +28,38 @@ public class Store {
     }
 
     public synchronized void buy() {
-        notifyAll();
-        sell();
+//        synchronized (this) {
+            try {
+                if (stand.isEmpty()) {
+                    wait();
+                    sell();
+                }
+            } catch (InterruptedException e) {}
+
+            int deleteIndex = ThreadLocalRandom.current().nextInt(stand.size());
+            System.out.println(Thread.currentThread().getName() + " 손님이 " + stand.get(deleteIndex) + "을(를) 구매 하였습니다.");
+            stand.remove(deleteIndex);
+
+            notifyAll();
+//        }
     }
 
     public synchronized void sell() {
-        if(stand.size() > 10) {
-            buy();
-        }
-        notifyAll();
+//        synchronized (this) {
+            try {
+                if(stand.size() > 10) {
+                    wait();
+//                    Thread.currentThread().interrupt();
+                }
+            } catch (InterruptedException e) {}
+            int addIndex = ThreadLocalRandom.current().nextInt(itemName.length - 1);
+            stand.add(itemName[addIndex]);
+            System.out.println("======진열대======");
+            System.out.println(stand);
+            System.out.println("================");
+
+            notifyAll();
+//        }
     }
 
     @Override
@@ -43,10 +68,5 @@ public class Store {
                 "stand=" + stand +
                 '}';
     }
-
-    public List<String> getStand() {
-        return stand;
-    }
-
 
 }
