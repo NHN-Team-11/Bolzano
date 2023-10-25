@@ -1,4 +1,4 @@
-package Bolzano.Mart.이중민.seller_buyer_solution;
+package Mart.이중민.seller_buyer_solution;
 
 import java.util.concurrent.ThreadLocalRandom;
 
