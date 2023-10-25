@@ -4,6 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Seller extends Thread {
     Store store;
+    Buyer buyer;
 
     public Seller(Store store) {
         this.store = store;
@@ -19,7 +20,7 @@ public class Seller extends Thread {
                         store.sell();
                         System.out.println("물품을 채워 놓았습니다.");
                     }
-                    String additem = store.itemList[ThreadLocalRandom.current().nextInt(store.Item.size())];
+                    String additem = store.itemList[buyer.item];
                     System.out.println("추가할 아이템 : " + additem);
                     store.Item.add(additem);
                     Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 10000));
