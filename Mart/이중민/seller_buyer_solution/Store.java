@@ -37,7 +37,7 @@ public class Store {
             } catch (InterruptedException e) {}
 
             int deleteIndex = ThreadLocalRandom.current().nextInt(stand.size());
-            System.out.println(Thread.currentThread().getName() + " 손님이 " + stand.get(deleteIndex) + "을(를) 구매 하였습니다.");
+            System.out.println(Thread.currentThread().getName() + " 손님이 " + stand.get(deleteIndex) + "를(을) 구매 하였습니다.");
             stand.remove(deleteIndex);
 
             notifyAll();
