@@ -47,7 +47,7 @@ public class Exercise8 {
                 count++;
             }
         }
-        System.out.println("점수는 : " + count * 10 + "점 입니다.");
+        System.out.println("점수는 " + count * 10 + "점 입니다.");
 
     }
 
