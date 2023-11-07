@@ -3,12 +3,13 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/Unit2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/채현명" isTestSource="false" packagePrefix="chapter11.thread.Mart" />
+      <sourceFolder url="file://$MODULE_DIR$/하재준" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="80c0c886-f098-4525-aac4-3fe084f29b59" />
+    <option name="uniqueId" value="c8fcc849-c4f6-43b2-9f4f-b7976b07bce0" />
   </component>
 </module>

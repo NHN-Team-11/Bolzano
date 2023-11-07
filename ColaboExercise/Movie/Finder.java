@@ -1,10 +1,10 @@
-<<<<<<< Updated upstream
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-=======
+
 package ColaboExercise.Movie;
->>>>>>> Stashed changes
+
 
 public class Finder {
     public Movie findTitle(MovieList movieList, String title) {
@@ -30,22 +30,20 @@ public class Finder {
 
         while (start <= end) {
             mid = (start + end) / 2;
-<<<<<<< Updated upstream
+
             String midTitle = movieList.getMovieList().get(mid).getTitle();
             int compareResult = title.compareTo(midTitle);
 
             if (compareResult == 0) {
-=======
+
             compare = movieList.getMovieList().get(mid).getTitle().compareTo(title);
             if(compare == 0) {
->>>>>>> Stashed changes
                 return movieList.getMovieList().get(mid);
             } else if (compareResult < 0) {
                 end = mid - 1;
             } else {
                 start = mid + 1;
             }
-<<<<<<< Updated upstream
             // if(movieList.getMovieList().get(mid).getTitle().equals(title)) {
             // return movieList.getMovieList().get(mid);
             // }
@@ -68,14 +66,13 @@ public class Finder {
             // end = mid - 1;
             // }
             // }
-=======
             else if(compare < 0) {
                 start = mid + 1;
             }
             else {
                 end = mid - 1;
             }
->>>>>>> Stashed changes
+
         }
         return null;
     }
