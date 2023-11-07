@@ -49,7 +49,7 @@ public class Store {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
             }
-            notify();
+            notifyAll();
         }
     }
 
@@ -64,7 +64,7 @@ public class Store {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
             }
-            notify();
+            notifyAll();
         }
     }
 }

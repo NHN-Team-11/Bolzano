@@ -4,7 +4,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Buyer extends Thread {
     Store store;
-    int item;
+    int item = ThreadLocalRandom.current().nextInt(store.Item.size());
 
     public Buyer(String name, Store store) {
         super(name);
@@ -17,10 +17,9 @@ public class Buyer extends Thread {
             store.enter();
             try {
                 Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 10000));
-                item = ThreadLocalRandom.current().nextInt(store.Item.size());
                 System.out.println(Thread.currentThread().getName() + "손님이 " + store.Item.get(item) + " 구매 하셨습니다.");
                 store.buy();
-                
+
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }

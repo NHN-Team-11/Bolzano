@@ -2,10 +2,12 @@ package Bolzano.Chapter4.jungmin;
 
 class Account {
     public int bal;
+
     public Account(int x) {
         this.bal = x;
     }
 }
+
 public class Exercise_4_8 {
     public static void method(int a, Account b) {
         a *= 2;
@@ -20,9 +22,9 @@ public class Exercise_4_8 {
         sb.append(c + " " + r.bal);
         System.out.println(sb);
 
-        Integer.parseInt(null)
-        Double.parseDouble(null)
-        
+        Integer.parseInt(null);
+        Double.parseDouble(null);
+
     }
-    
+
 }
