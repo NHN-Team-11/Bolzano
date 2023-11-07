@@ -33,7 +33,7 @@ public class Store {
             try {
                 if (stand.isEmpty()) {
                     wait();
-                    sell();
+                
                 }
             } catch (InterruptedException e) {}
 

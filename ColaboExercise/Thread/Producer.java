@@ -9,7 +9,6 @@ public class Producer extends Thread {
         this.store = store;
 
     }
-
     @Override
     public void run() {
         try {
